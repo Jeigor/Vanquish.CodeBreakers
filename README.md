@@ -8,7 +8,7 @@ Rayshawn Cooper
 Planning Game Dev Cloud-based Company
 
 Daniel Boice
-// note
+Planning Senior Help Finder
 
 Joe Pettinelli
 // note
