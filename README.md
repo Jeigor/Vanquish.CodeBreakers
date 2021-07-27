@@ -11,7 +11,7 @@ Daniel Boice
 Planning Senior Help Finder
 
 Joe Pettinelli
-// note
+Planning Microtransaction shop for [F2P Multiplayer Game]
 
 Davies Alongo
 // note
