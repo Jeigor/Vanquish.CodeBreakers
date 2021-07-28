@@ -11,7 +11,7 @@ Daniel Boice
 Planning Senior Help Finder
 
 Joe Pettinelli
-Planning Microtransaction shop for [F2P Multiplayer Game]
+Planning Secret Lair Construction Company
 
 Davies Alongo
 // note
