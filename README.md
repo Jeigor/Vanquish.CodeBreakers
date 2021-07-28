@@ -34,6 +34,7 @@ Planning Company Auction House.
 *********************************************//*
 
 Asaph Biswa:
-// notes
+Planning uber like app for mechanics
+ERD drafted
 
 **********************************************/
