@@ -24,7 +24,7 @@ Planning Secret Lair Construction Company.
 *********************************************//*
 
 Davies Alongo:
-// note
+Planning mini supermarket business
 
 *********************************************//*
 
