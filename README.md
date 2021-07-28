@@ -24,7 +24,7 @@ Planning Secret Lair Construction Company.
 *********************************************//*
 
 Davies Alongo:
-Planning mini supermarket business
+Planning mini supermarket business.
 
 *********************************************//*
 
@@ -34,7 +34,7 @@ Planning Company Auction House.
 *********************************************//*
 
 Asaph Biswa:
-Planning uber like app for mechanics
+Planning uber like app for mechanics.
 ERD drafted
 
 **********************************************/
