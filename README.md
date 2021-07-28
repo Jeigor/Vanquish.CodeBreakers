@@ -17,7 +17,7 @@ Davies Alongo
 // note
 
 Autin Ulberg
-Planning Company that displays items to be auctioned off items to the highest bidder before the time is up
+Planning Company Auction House
 
 Asaph Biswa
 // notes
