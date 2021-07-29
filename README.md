@@ -19,7 +19,7 @@ ERD drafted.
 *********************************************//*
 
 Joe Pettinelli:
-Planning Secret Lair Construction Company.
+Planning Secret Lair Construction Company. ERD drafted.
 
 *********************************************//*
 
