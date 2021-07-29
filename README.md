@@ -19,7 +19,8 @@ ERD drafted.
 *********************************************//*
 
 Joe Pettinelli:
-Planning Secret Lair Construction Company. ERD drafted.
+Planning Secret Lair Construction Company. 
+ERD drafted.
 
 *********************************************//*
 
@@ -29,12 +30,13 @@ Planning mini supermarket business.
 *********************************************//*
 
 Autin Ulberg:
-Planning Company Auction House.
+Planning Company Auction House. 
+ERD drafted.
 
 *********************************************//*
 
 Asaph Biswa:
 Planning uber like app for mechanics.
-ERD drafted
+ERD drafted.
 
 **********************************************/
