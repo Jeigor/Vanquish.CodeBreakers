@@ -1,0 +1,28 @@
+Standup Notes: 7/26/21 - Day 1
+Met with team; asked some clarifying questions about background.
+Rayshawn, Daniel and Austin all have background experience in coding.
+
+Standup Notes: 7/27/21 - Day 2
+Clarification on some details from class notes.
+Recommendations for programs to make ERD: Draw.io, OneNote, Paint, Schema Builder in SF, App.gleek.io
+Going to work on Data Modeling Trailmix
+
+Standup Notes: 7/28/21 - Day 3
+Rayshawn says App.gleek.io might be a good resource for ERD
+Going to work on Developer - Beginner Trailmix
+Hopefully helped Davies gain a broader perspective to see the "whole" of the project instead of focusing on its parts.
+Showed my ERD WIP
+
+Standup Notes: 7/29/21 - Day 4
+People continuing their work, doing other trailmix badges.
+I was the only one to do the optional exercises 5-1 - 5-3
+Going to try Security Badge to help with comprehension
+Have to complete exercises up to 6-4 by F
+
+Standup Notes: 7/30/21 - Day 5
+Reviewed Austin + Rayshawn's ERD
+Need to complete P0 this weekend before Monday
+>Presentation
+Study for Quiz
+
+
