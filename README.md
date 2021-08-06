@@ -1,42 +1,13 @@
 /************************************************ 
 
-Vanquish.CodeBreakers Notes 
+Vanquish.CodeBreakers
 
-Date: 27 Jul 2021
+Stand-up notes can be found in the stand-up branch.
 
 **********************************************//*
+Members:
+Rayshawn Cooper
+Autin Ulberg
+Daniel Boice
 
-Rayshawn Cooper:
-Planning Game Dev Cloud-based Company.
-ERD drafted.
-
-*********************************************//*
-
-Daniel Boice:
-Planning Senior Help Finder.
-ERD drafted.
-
-*********************************************//*
-
-Joe Pettinelli:
-Planning Secret Lair Construction Company. 
-ERD drafted.
-
-*********************************************//*
-
-Davies Alongo:
-Planning mini supermarket business.
-
-*********************************************//*
-
-Autin Ulberg:
-Planning Company Auction House. 
-ERD drafted.
-
-*********************************************//*
-
-Asaph Biswa:
-Planning uber like app for mechanics.
-ERD drafted.
-
-**********************************************/
+*********************************************/
