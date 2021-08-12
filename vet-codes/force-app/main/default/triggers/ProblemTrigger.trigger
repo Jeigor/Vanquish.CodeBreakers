@@ -8,7 +8,7 @@
  * Ver   Date         Author         Modification
  * 1.0   08-11-2021   Daniel Boice   Initial Version
 **/
-trigger ProblemTrigger on Problem (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
+trigger ProblemTrigger on Problem__c (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
 
     switch on trigger.operationType {
         when BEFORE_INSERT {
