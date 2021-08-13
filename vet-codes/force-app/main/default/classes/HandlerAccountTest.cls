@@ -1,5 +1,5 @@
 /**
- * @description       : 
+ * @description       : Tests for the AccountHandler class. runs tests to check if Account can be deleted when Closed or Won Opportunities are present
  * @author            : Daniel Boice
  * @group             : 
  * @last modified on  : 08-13-2021
@@ -93,92 +93,9 @@ public with sharing class HandlerAccountTest {
             //System.assertEquals(false, ableToDelete, 'exception');
             System.assertEquals(true, success, 'not able to add opportunity sample data');
         }
-        // Opportunity oppAfterAdd = (Opportunity)[SELECT Name, StageName FROM 
-        // Opportunity WHERE Name = 'test Opportunity' LIMIT 1];
-        // System.debug('account id is '+ oppAfterAdd.Id);
-        // System.debug('account name after add is '+ oppAfterAdd.Name);
+      
     }
-    // @IsTest(SeeAllData=false) public static Account ableToAddAccountTest() {
-        
-        
-    //     //Opportunity opp = (Opportunity) opportunitiesMatchingClosedList[0];
-    //     Account acctToAdd = new Account ();
-    //     acctToAdd.Name = 'test Account';
-    //     Boolean ableToAdd = true;
-    //     System.debug('testing add account');
-    //     try {
-    //         insert acctToAdd;
-    // 		//HandlerAccount.handleAccountAbleToCreateContact(myAccountList);
-    //         System.debug('able to insert account');
-           
-    //     } 
-    //     catch (Exception e) {
-    //         //ableToDelete = false;
-    //         System.debug(e.getMessage());
-    //         ableToAdd = false;
-    //     } 
-    //     finally {
-    //         //System.assertEquals(false, ableToDelete, 'exception');
-    //         System.assertEquals(true, ableToAdd, 'not able to add account');
-    //     }
-        
-    //     Account acctAfterAdd = (Account)[SELECT Name FROM Account WHERE Name = 'test Account' LIMIT 1][0];
-
-
-
-    //     System.debug('account id is '+ acctAfterAdd.Id);
-    //     System.debug('account name after add is '+ acctAfterAdd.Name);
-    //     if(ableToAdd){
-
-    //         return acctAfterAdd;
-    //     }
-    //     else{
-    //         throw new Exception('unable to add account');
-    //     }
-
-    // }
-    // @IsTest(SeeAllData=false) public static Opportunity ableToAddOpportunityTest() {
-        
-    //     Account acctAfterAdd = (Account) ableToAddAccountTest();
-    //     Opportunity oppToAdd = new Opportunity ();
-    //     oppToAdd.Name = 'test Opportunity';
-    //     oppToAdd.StageName ='Closed Won';
-    //     oppToAdd.AccountId = acctAfterAdd.Id;
-	// 	oppToAdd.CloseDate = System.Date.today();
-    //     Boolean ableToAdd = true;
-    //     System.debug('testing add opportunity');
-	// 	insert oppToAdd;
-    //     try {
-    //         //insert oppToAdd;
-    // 		//HandlerAccount.handleAccountAbleToCreateContact(myAccountList);
-    //         System.debug('able to insert opportunity');
-           
-    //     } 
-    //     catch (Exception e) {
-    //         //ableToDelete = false;
-    //         System.debug(e.getMessage());
-    //         ableToAdd = false;
-    //     } 
-    //     finally {
-    //         //System.assertEquals(false, ableToDelete, 'exception');
-    //         System.assertEquals(true, ableToAdd, 'not able to add opportunity');
-    //     }
-        
-    //     Opportunity oppAfterAdd = (Opportunity)[SELECT Name, StageName FROM Opportunity WHERE Name = 'test Opportunity' LIMIT 1][0];
-
-
-
-    //     System.debug('account id is '+ oppAfterAdd.Id);
-    //     System.debug('account name after add is '+ oppAfterAdd.Name);
-    //     if(ableToAdd){
-
-    //         return oppAfterAdd;
-    //     }
-    //     else{
-    //         throw new Exception('unable to add account');
-    //     }
-
-    // }
+   
     @IsTest(SeeAllData=false) public static void TP_handleAccountAbleToDeleteContactTest() {
         
         // Account acct = (Account) handleAccountAbleToAddAccount();
@@ -309,11 +226,6 @@ public with sharing class HandlerAccountTest {
 
     @IsTest(SeeAllData=false) public static void TN_handleAccountAbleToDeleteContactTest() {
         
-        // Account acct = (Account) handleAccountAbleToAddAccount();
-
-        // Opportunity opportunitiesMatchingClosedList = (Opportunity)[SELECT Account.Name, StageName 
-        //                                                 FROM Opportunity WHERE StageName='Closed Won'
-        //                                                  or StageName = 'Closed Lost' LIMIT 1];
         
         Test.startTest();
         Account[] acctList = [SELECT Name, (SELECT Name, StageName FROM Opportunities WHERE (NOT StageName LIKE 'Closed%')
@@ -356,42 +268,7 @@ public with sharing class HandlerAccountTest {
                 tPass = false;
             }
         } 
-        // catch(CustomExceptions.ClosedWonOrLostOpportunitiesExistException e){
-
-        //     tPass = true;
-        //     msg = e.getMessage();
-        //     System.debug(e.getLineNumber());
-        //     System.debug(msg);
-        //     if (msg.contains('An account with opportunities at the stage of Won or Lost cannot be deleted')){
-        //         System.debug(msg);
-        //         tPass = true;
-        //     }
-        //     else{
-        //         msg=msg+ 'CustomException.ClosedWonOrLostOpportunitiesExistException was thrown, but custom error message not displayed. Check with Caroline how to override if thrown before trigger';
-        //         System.debug(msg);
-        //         tPass = false;
-        //     }
-
-
-        // }
-        // catch(System.AssertException e){
-
-        //     tPass = false;
-        //     msg = e.getMessage();
-        //     System.debug(e.getLineNumber());
-        //     System.debug(msg);
-        //     if (msg.contains('An account with opportunities at the stage of Won or Lost cannot be deleted')){
-        //         System.debug(msg);
-        //         tPass = true;
-        //     }
-        //     else{
-        //         msg=msg+ 'System.AssertException was thrown, but custom error message not displayed. Check with Caroline how to override if thrown before trigger';
-        //         System.debug(msg);
-        //         tPass = false;
-        //     }
-
-
-        // }
+       
         catch (System.DmlException e) {
             //ableToDelete = false;
            
