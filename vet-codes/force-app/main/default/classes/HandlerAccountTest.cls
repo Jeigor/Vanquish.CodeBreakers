@@ -118,7 +118,7 @@ public with sharing class HandlerAccountTest {
             }    
         }
         Account acctWithClosedOp;
-        System.assertEquals(accountWithOpportunityClosedList.size()==1, accountWithOpportunityClosedList.size()==1,'unable to find an account sample data');
+         System.assertNotEquals(1, accountWithOpportunityClosedList.size(), 'unable to find an account sample data');
             try {
                 acctWithClosedOp = (Account) accountWithOpportunityClosedList[0];
             }

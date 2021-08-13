@@ -36,6 +36,10 @@ public with sharing class HandlerProblem {
             //Problem__c[] myProbList = [SELECT Id, Description__c FROM Problem__c WHERE Id = 'a1V5e000005eG82EAE' LIMIT 1];
 	        // Problem__c myProb = (Problem__c) myProbList[0];
 	        System.debug(myProb.Id);
+			// Make sure we can update the database before even trying
+			if (!Schema.sObjectType.Developer_Team__c.fields.Slack_Channel__c.isUpdateable()) {
+				return null;
+			}
 	        Coding_Session_Problem__c[] myProbSessionList = [SELECT Coding_Session_Problem__c.Problem__r.Id, Coding_Session_Problem__c.Coding_Session__r.Id FROM Coding_Session_Problem__c WHERE Coding_Session_Problem__c.Problem__r.Id =: myProb.Id LIMIT 1];
 	        Coding_Session_Problem__c myProblemSession = (Coding_Session_Problem__c) myProbSessionList[0];	
             Coding_Session__c myCodingSessionDeveloperTeam =(Coding_Session__c)[SELECT Coding_Session__c.Developer_Team__r.Slack_Channel__c, Coding_Session__c.Developer_Team__r.Name, Coding_Session__c.Developer_Team__r.Send_Slack_Message__c, name From Coding_Session__c WHERE Coding_Session__c.Id =:myProblemSession.Coding_Session__r.Id LIMIT 1][0];
