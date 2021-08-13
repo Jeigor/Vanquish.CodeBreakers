@@ -14,7 +14,7 @@ public with sharing class HandlerAccount {
     Accounts that are associated with an Opportunity that is either "Closed Lost" or "Closed Won" stage should be prevented from deletion. test, test
 
     */
-    public static void handleAccountValidateOportunitiesNotClosed ( List<Account> acctsToDelete) {
+    public static void handleAccountDeleteValidateOportunitiesNotClosed ( List<Account> acctsToDelete) {
         
         Account[] acctList = [SELECT Name, (SELECT Name, StageName FROM Opportunities WHERE StageName = 'Closed Won' 
                                 or StageName = 'Closed Lost'

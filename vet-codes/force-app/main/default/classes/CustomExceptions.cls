@@ -28,5 +28,6 @@ public with sharing class CustomExceptions {
         public class CommunityException extends Exception{}
         public class RecordLockedException extends Exception{}
         public class AuthorizationException extends Exception {}
+        public class ClosedWonOrLostOpportunitiesExistException extends Exception {}
     
 }
