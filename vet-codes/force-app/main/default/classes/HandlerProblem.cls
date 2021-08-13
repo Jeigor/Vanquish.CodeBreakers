@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-11-2021
+ * @last modified on  : 08-13-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -12,11 +12,11 @@ public with sharing class HandlerProblem {
     
     /*
     
-    Create a trigger on the account object that follows all best practices and implements the following use case:
-
-    Accounts that are associated with an Opportunity that is either "Closed Lost" or "Closed Won" stage should be prevented from deletion. test, test
-
     
+     Updates the Developer team to send a slack Slack notification.  Will change this to a workflow or Process, shortly, just a demonstration
+    and practice of SOQL, Triggers, Exceptions, and Tests from week 2 
+
+	
 	PProblem__c[] myProbList = [SELECT Id, Description__c FROM Problem__c WHERE Id = 'a1V5e000005eG82EAE' LIMIT 1];
 	Problem__c myProb = (Problem__c) myProbList[0];
 	System.debug(myProb.Id);
@@ -29,7 +29,7 @@ public with sharing class HandlerProblem {
     */
     public static void sendMessageToDeveloperTeamSlackChannel ( List<Problem__c> probsCreated) {
 
-
+		// need to bulkify this
         if (probsCreated.size()==1){
             Problem__c myProb = probsCreated[0];
 
