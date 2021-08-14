@@ -2,7 +2,7 @@
  * @description       : Tests for the AccountHandler class. runs tests to check if Account can be deleted when Closed or Won Opportunities are present
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-13-2021
+ * @last modified on  : 08-14-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -118,7 +118,7 @@ public with sharing class HandlerAccountTest {
             }    
         }
         Account acctWithClosedOp;
-         System.assertNotEquals(1, accountWithOpportunityClosedList.size(), 'unable to find an account sample data');
+         System.assertEquals(1, accountWithOpportunityClosedList.size(), 'unable to find an account sample data size is :' +accountWithOpportunityClosedList.size());
             try {
                 acctWithClosedOp = (Account) accountWithOpportunityClosedList[0];
             }

@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-12-2021
+ * @last modified on  : 08-14-2021
  * @last modified by  : Daniel Boice
 **/
 public with sharing class HandlerAccount {
@@ -16,7 +16,7 @@ public with sharing class HandlerAccount {
     */
     public static void handleAccountDeleteValidateOportunitiesNotClosed ( List<Account> acctsToDelete) {
         
-        Account[] acctList = [SELECT Name, (SELECT Name, StageName FROM Opportunities WHERE StageName = 'Closed Won' 
+        Account[] acctList = [SELECT Id, Name, (SELECT Name, StageName FROM Opportunities WHERE StageName = 'Closed Won' 
                                 or StageName = 'Closed Lost'
                                 ) FROM Account];
 
