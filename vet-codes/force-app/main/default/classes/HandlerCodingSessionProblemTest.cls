@@ -173,7 +173,7 @@ public with sharing class HandlerCodingSessionProblemTest {
 
 
         //get a sample problem
-        Problem__c sampleProblem = (Problem__c ) [SELECT Id, Name FROM Problem__c LIMIT 1];
+        Problem__c sampleProblem = (Problem__c ) [SELECT Id, Name, Description__c FROM Problem__c LIMIT 1];
 
         //get a sample coding session
         Coding_Session__c sampleCodingSessionAndDevTeam = (Coding_Session__c) [SELECT Id, Name, Developer_Team_Developer__r.Developer_Team__r.Send_Slack_Message__c FROM Coding_Session__c LIMIT 1];
@@ -236,21 +236,26 @@ public with sharing class HandlerCodingSessionProblemTest {
 
             //now lets check to see if the developer team send slack message field has updated
 
-            Coding_Session_Problem__c codingSessionProblemAdded = (Coding_Session_Problem__c) [SELECT Id, Name, Coding_Session__c FROM Coding_Session_Problem__c LIMIT 1];
+            Coding_Session_Problem__c codingSessionProblemAdded = (Coding_Session_Problem__c) [SELECT Id, Name, Coding_Session__r.Id FROM Coding_Session_Problem__c LIMIT 1];
             System.assertNotEquals(codingSessionProblemAdded, null, 'unable to find an sample coding session problem');
 
-            Coding_Session__c codeSess = (Coding_Session__c) [SELECT Id, Name, Developer_Team_Developer__c FROM Coding_Session__c WHERE Id =: codingSessionProblemAdded.Coding_Session__c LIMIT 1];
+            Coding_Session__c codeSess = (Coding_Session__c) [SELECT Id, Name, Developer_Team_Developer__r.Id FROM Coding_Session__c WHERE Id =: codingSessionProblemAdded.Coding_Session__r.Id LIMIT 1];
+
+            System.assertNotEquals(codeSess, null, 'codeSess varialbe is null');
             //we have the coding session problem that we just entered now lets get the developer team
             // Coding_Session__c sampleCodingSes = (Coding_Session__c) codingSessionProblemAdded.Coding_Session__r;
 
-            Developer_Team_Developer__c devTeamDev = (Developer_Team_Developer__c)[SELECT Name, Id, Developer_Team__c FROM Developer_Team_Developer__c WHERE ID =: codeSess.Developer_Team_Developer__r.Id LIMIT 1];
+            Developer_Team_Developer__c devTeamDev = (Developer_Team_Developer__c)[SELECT Name, Id, Developer_Team__r.Id FROM Developer_Team_Developer__c WHERE ID =: codeSess.Developer_Team_Developer__r.Id LIMIT 1];
 
-            Developer_Team__c devTeam = (Developer_Team__c)[SELECT Id, Name, Send_Slack_Message__c FROM Developer_Team__c WHERE id =: devTeamDev.Developer_Team__c LIMIT 1]; 
+            System.assertNotEquals(devTeamDev, null, 'devTeamDev varialbe is null');
+
+            Developer_Team__c devTeam = (Developer_Team__c)[SELECT Id, Name, Send_Slack_Message__c, Slack_Channel__c FROM Developer_Team__c WHERE id =: devTeamDev.Developer_Team__r.Id LIMIT 1]; 
+            System.assertNotEquals(devTeam, null, 'devTeam varialbe is null');
 
           
 
             // check that send to slack message in developer team record is as expected
-            System.assertEquals(devTeam.Send_Slack_Message__c, ' New Slack Message: This is one lovely slack message for the '  +  devTeam.Name + ' on the Slack Channel '+ devTeam.Slack_Channel__c + ' as follows: ' + sampleProblem.Description__c);
+            System.assertEquals(devTeam.Send_Slack_Message__c, 'New Slack Message: This is one lovely slack message for the '  +  devTeam.Name + ' on the Slack Channel '+ devTeam.Slack_Channel__c + ' as follows: ' + sampleProblem.Description__c, 'the slack message was not correct. '+ devTeam.Send_Slack_Message__c);
       
 
     }
