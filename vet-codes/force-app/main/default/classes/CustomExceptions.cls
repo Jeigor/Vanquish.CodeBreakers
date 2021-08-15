@@ -2,7 +2,7 @@
  * @description       : Class for project custom exceptions
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-12-2021
+ * @last modified on  : 08-14-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -29,5 +29,7 @@ public with sharing class CustomExceptions {
         public class RecordLockedException extends Exception{}
         public class AuthorizationException extends Exception {}
         public class ClosedWonOrLostOpportunitiesExistException extends Exception {}
-    
+        
+
+        public static String ERROR_MESSAGE_UNABLE_TO_UPDATE_DEV_TEAM_SLACK_MESS='problem updating the developer team record for slack message.';
 }

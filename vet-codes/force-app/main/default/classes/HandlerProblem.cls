@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-13-2021
+ * @last modified on  : 08-15-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -30,29 +30,29 @@ public with sharing class HandlerProblem {
     public static void sendMessageToDeveloperTeamSlackChannel ( List<Problem__c> probsCreated) {
 
 		// need to bulkify this
-        if (probsCreated.size()==1){
-            Problem__c myProb = probsCreated[0];
+        
+            // Problem__c myProb = probsCreated[0];
 
-            //Problem__c[] myProbList = [SELECT Id, Description__c FROM Problem__c WHERE Id = 'a1V5e000005eG82EAE' LIMIT 1];
-	        // Problem__c myProb = (Problem__c) myProbList[0];
-	        System.debug(myProb.Id);
-			// Make sure we can update the database before even trying
-			if (!Schema.sObjectType.Developer_Team__c.fields.Slack_Channel__c.isUpdateable()) {
-				return null;
-			}
-	        Coding_Session_Problem__c[] myProbSessionList = [SELECT Coding_Session_Problem__c.Problem__r.Id, Coding_Session_Problem__c.Coding_Session__r.Id FROM Coding_Session_Problem__c WHERE Coding_Session_Problem__c.Problem__r.Id =: myProb.Id LIMIT 1];
-	        Coding_Session_Problem__c myProblemSession = (Coding_Session_Problem__c) myProbSessionList[0];	
-            Coding_Session__c myCodingSessionDeveloperTeam =(Coding_Session__c)[SELECT Coding_Session__c.Developer_Team__r.Slack_Channel__c, Coding_Session__c.Developer_Team__r.Name, Coding_Session__c.Developer_Team__r.Send_Slack_Message__c, name From Coding_Session__c WHERE Coding_Session__c.Id =:myProblemSession.Coding_Session__r.Id LIMIT 1][0];
-	        Developer_Team__c dt = (Developer_Team__c) myCodingSessionDeveloperTeam.Developer_Team__r;
-	        dt.Send_Slack_Message__c = ' New Slack Message: This is one lovely slack message for the '  +  dt.Name + ' on the Slack Channel '+ dt.Slack_Channel__c + ' as follows: ' + myProb.Description__c; 
-	        System.debug(dt.Name);
-	        System.debug(dt.Send_Slack_Message__c);
-            try {
-    	        update dt;
-	        }
-            catch(DmlException e) {
-   		        System.debug('An unexpected error has occurred: ' + e.getMessage());
-             }
+            // //Problem__c[] myProbList = [SELECT Id, Description__c FROM Problem__c WHERE Id = 'a1V5e000005eG82EAE' LIMIT 1];
+	        // // Problem__c myProb = (Problem__c) myProbList[0];
+	        // System.debug(myProb.Id);
+			// // Make sure we can update the database before even trying
+			// if (!Schema.sObjectType.Developer_Team__c.fields.Slack_Channel__c.isUpdateable()) {
+			// 	return;
+			// }
+	        // Coding_Session_Problem__c[] myProbSessionList = [SELECT Coding_Session_Problem__c.Problem__r.Id, Coding_Session_Problem__c.Coding_Session__r.Id FROM Coding_Session_Problem__c WHERE Coding_Session_Problem__c.Problem__r.Id =: myProb.Id LIMIT 1];
+	        // Coding_Session_Problem__c myProblemSession = (Coding_Session_Problem__c) myProbSessionList[0];	
+            // Coding_Session__c myCodingSessionDeveloperTeam =(Coding_Session__c)[SELECT Coding_Session__c.Developer_Team_Developer__r.Developer_Team__r.Slack_Channel__c, Coding_Session__c.Developer_Team_Developer__r.Developer_Team__r.Name, Coding_Session__c.Developer_Team_Developer__r.Developer_Team__r.Send_Slack_Message__c, name From Coding_Session__c WHERE Coding_Session__c.Id =:myProblemSession.Coding_Session__r.Id LIMIT 1][0];
+	        // Developer_Team__c dt = (Developer_Team__c) myCodingSessionDeveloperTeam.Developer_Team__r;
+	        // dt.Send_Slack_Message__c = ' New Slack Message: This is one lovely slack message for the '  +  dt.Name + ' on the Slack Channel '+ dt.Slack_Channel__c + ' as follows: ' + myProb.Description__c; 
+	        // System.debug(dt.Name);
+	        // System.debug(dt.Send_Slack_Message__c);
+            // try {
+    	    //     update dt;
+	        // }
+            // catch(DmlException e) {
+   		    //     System.debug('An unexpected error has occurred: ' + e.getMessage());
+            //  }
 	        //Problem__c myProb = (Problem__c) [SELECT Id, Description__c FROM Problem__c WHERE Id = 'a1V5e000005eG82EAE' LIMIT 1][0];
 	       // Problem_Session__c myProbSession = [SELECT Problem_Session_c.Session__r.Id, Problem_Session__c.Problem__r.Id FROM Problem_Session_c WHERE Problem_Session__c.Problem__r.Id =: myProb.Id LIMIT 1][0];
 
@@ -61,7 +61,7 @@ public with sharing class HandlerProblem {
 	        //dt.Send_Slack_Message__c= dt.Send_Slack_Message__c + '\n New Slack Message: This is one lovely slack message for the '  +  dt.Name + ' on the Slack Channel '+ dt.Slack_Channel__c + ' as follows: ' + prob.Description__c); 
 
 	       // System.debug(dt.Send_Slack_Message__c);
-        }
+        
 //Coding_Session__c[] myCodingSessionsWithCildCodingSessionProblems = [SELECT Id, Name, Developer_Team__r.Slack_Channel__c, (SELECT Name, Id FROM Coding_Sessions_Problems__r) FROM Coding_Session__c];
  //Coding_Session__c[] myCodingSessionsWithCildCodingSessionProblems = [SELECT Id, Name, Developer_Team__r.Slack_Channel__c, (SELECT Name, Id, Problem__r.Description__c FROM Coding_Sessions_Problems__r) FROM Coding_Session__c];
 //Coding_Session_Problem__c[] myCodingSessionsProblems =[SELECT name , Coding_Session__c, Coding_Session_Problem__c.Problem__r.Description__c FROM Coding_Session_Problem__c];
