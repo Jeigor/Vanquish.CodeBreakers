@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-15-2021
+ * @last modified on  : 08-16-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -27,7 +27,39 @@ public with sharing class HandlerProblem {
 	dt.Send_Slack_Message__c = dt.Send_Slack_Message__c + ' New Slack Message: This is one lovely slack message for the '  +  dt.Name + ' on the Slack Channel '+ dt.Slack_Channel__c + ' as follows: ' + myProb.Description__c); 
 	System.debug(dt.Name);
     */
-    public static void sendMessageToDeveloperTeamSlackChannel ( List<Problem__c> probsCreated) {
+
+	public static void checkThatNoCodingSessionsHaveThisProblemBeforeDelete ( List<Problem__c> probsToDelete) {
+
+	
+        
+		//get list of ids for the problems to delete
+		List<Id> probToDeleteIdList = new List<Id>();
+		for(Problem__c prob : probsToDelete){
+			
+			probToDeleteIdList.add(prob.Id);
+		}
+
+		Coding_Session_Problem__c[] codingSessionProblemsLinkedToProblems = [SELECT Id, Name, Problem__r.Id FROM Coding_Session_Problem__c WHERE Problem__r.Id IN :probToDeleteIdList];
+
+		for (Coding_Session_Problem__c codSessProb :codingSessionProblemsLinkedToProblems){
+			if(probToDeleteIdList.contains(codSessProb.Problem__r.Id)){
+				throw new CustomExceptions.DeletingProblemLinkedToCodingSessionException(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION);
+			}
+
+		}
+
+
+		// System.assertEquals(0, codingSessionProblemsLinkedToProblems.size(), codingSessionProblemsLinkedToProblems + 'should not have any coding session problems');
+		// if(codingSessionProblemsLinkedToProblems.size()>0){
+		// 	//there are coding session problems linked to this problem
+		// 	throw new CustomExceptions.DeletingProblemLinkedToCodingSessionException(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION);
+		// }
+
+
+
+
+	}
+    // public static void sendMessageToDeveloperTeamSlackChannel ( List<Problem__c> probsCreated) {
 
 		// need to bulkify this
         
@@ -133,5 +165,5 @@ public with sharing class HandlerProblem {
 //             System.debug(codingSessProb.Problem__r.Description__c);
 //         }
 
-    }
+    // }
 }

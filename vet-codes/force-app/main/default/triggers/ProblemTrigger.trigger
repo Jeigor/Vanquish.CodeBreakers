@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-15-2021
+ * @last modified on  : 08-16-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -18,7 +18,7 @@ trigger ProblemTrigger on Problem__c (before insert, before update, before delet
         
         }
         when BEFORE_DELETE {
-        
+            HandlerProblem.checkThatNoCodingSessionsHaveThisProblemBeforeDelete(trigger.old);
         }
         when AFTER_INSERT {
             // HandlerProblem.sendMessageToDeveloperTeamSlackChannel(trigger.new);

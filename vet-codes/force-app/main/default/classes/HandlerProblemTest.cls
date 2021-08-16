@@ -2,17 +2,368 @@
  * @description       : Tests the Handle Problem After Problem Insert Trigger Handler to send message to Slack developer team
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-14-2021
+ * @last modified on  : 08-16-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
  * 1.0   08-09-2021   Daniel Boice   Initial Version
 **/
-@IsTest 
+@isTest(seeAllData=false) 
 public with sharing class HandlerProblemTest {
     /*
-     Tests updating of the Developer team to send a slack Slack notification.  Will change this to a workflow or Process, shortly, just a demonstration and practice of SOQL, Triggers, Exceptions, and Tests using best practices from week 2 
+    TP_CheckThatNoCodingSessionsHaveThisProblemBeforeDelete();
+    // tests that a problem cannot be deleted if it has child records in the Coding_Session_Problem__c linked to Coding_Session__c and that it displays a custom error message after throwing an error. 
+
+    TN_CheckThatNoCodingSessionsHaveThisProblemBeforeDelete();
+    // tests that a problem can be deleted if it does not have child records in the Coding_Session_Problem__c linked to a Coding_Session__c 
     */
+
+    @TestSetup
+    static void createSampleData(){
+        final String DEVELOPER_TEAM_SAMPLE_NAME = 'test DTN';
+        final String PROPBLEM_TEST_NAME = 'problem test NAME';
+        final String PROBLEM_TEST_DESC = 'this is a test description';
+        final String DEVELOPER_TEAM_DEVELOPER_TEST_NAME = 'Developer Test Name';
+
+            Developer_Team__c developerTeamToAdd = new Developer_Team__c();
+
+            developerTeamToAdd.Name = DEVELOPER_TEAM_SAMPLE_NAME;
+    
+            Boolean success = true;
+            String msg = '';
+                // use DML to add developer team sample data
+        	try {
+        		insert developerTeamToAdd;
+                System.debug('able to insert test developer team');
+            } 
+            catch (Exception e) {
+                msg = e.getMessage()+ ' '+ e.getLineNumber();
+                success = false;
+                System.debug(msg);
+                
+            } 
+            finally {
+                System.assertEquals(true, success, 'error inserting sample developer team'  + msg);
+            }
+
+           
+            
+            
+            Employee__c employeeToAdd = new Employee__c();
+
+            success = true;
+            msg = '';
+                // use DML to add developer team sample data
+        	try {
+        		insert employeeToAdd;
+                System.debug('able to insert test employee');
+            } 
+            catch (Exception e) {
+                msg = e.getMessage()+ ' '+ e.getLineNumber();
+                success = false;
+                System.debug(msg);
+                
+            } 
+            finally {
+                System.assertEquals(true, success, 'error inserting sample employee'  + msg);
+            }
+            Employee__c employeeAdded = (Employee__c )[SELECT Id, name FROM Employee__c LIMIT 1];
+            System.assertNotEquals(employeeAdded, null, 'unable to find an account sample employee');
+            
+            
+            Developer_Team_Developer__c developerTeamDeveloperToAdd = new Developer_Team_Developer__c();
+            Developer_Team__c myDeveloperTeamAdded = (Developer_Team__c) [SELECT Id, name FROM Developer_Team__c LIMIT 1];
+          
+            System.assertNotEquals(null, myDeveloperTeamAdded,'unable to find an account sample developer team');
+
+            developerTeamDeveloperToAdd.Developer_Team__c=myDeveloperTeamAdded.Id;
+            developerTeamDeveloperToAdd.Developer__c= employeeAdded.Id;
+            developerTeamDeveloperToAdd.Name = DEVELOPER_TEAM_DEVELOPER_TEST_NAME;
+
+            success = true;
+            msg = 'able to insert test developer team developer';
+                // use DML to add developer team sample data
+        	try {
+        		insert developerTeamDeveloperToAdd;
+                System.debug(msg);
+            } 
+            catch (Exception e) {
+                msg = e.getMessage()+ ' '+ e.getLineNumber();
+                success = false;
+                System.debug(msg);
+                
+            } 
+            finally {
+                System.assertEquals(true, success, 'error inserting sample developer team developer'  + msg);
+            }
+
+            Developer_Team_Developer__c developerTeamDeveloperAdded = (Developer_Team_Developer__c) [SELECT Id, Name FROM Developer_Team_Developer__c LIMIT 1];
+            System.assertNotEquals(developerTeamDeveloperAdded, null, 'unable to find an sample developer team developer');
+
+
+            Coding_Session__c codingSessionToAdd = new Coding_Session__c();
+            codingSessionToAdd.Developer_Team_Developer__c=developerTeamDeveloperAdded.Id;
+            codingSessionToAdd.Start_Time__c = Datetime.now();
+            
+
+            success = true;
+            msg = 'able to insert test coding session';
+                // use DML to add developer team sample data
+        	try {
+        		insert codingSessionToAdd;
+                System.debug(msg);
+            } 
+            catch (Exception e) {
+                msg = e.getMessage()+ ' '+ e.getLineNumber();
+                success = false;
+                System.debug(msg);
+                
+            } 
+            finally {
+                System.assertEquals(true, success, 'error inserting sample coding session'  + msg);
+            }
+
+            Coding_Session__c codingSessionAdded = (Coding_Session__c) [SELECT Id, Name FROM Coding_Session__c LIMIT 1];
+            System.assertNotEquals(codingSessionAdded, null, 'unable to find an sample coding session');
+            
+            Problem__c[] probsToAddList = new List<Problem__c>();
+            for(Integer i=0 ;i<4; i++ ){
+                Problem__c problemToAdd = new Problem__c ();
+                problemToAdd.Description__c = PROBLEM_TEST_DESC+i;
+                problemToAdd.Name = PROPBLEM_TEST_NAME +i;
+                probsToAddList.add(problemToAdd);
+             }
+            success = true;
+            msg = 'able to insert test sample problem';
+                // use DML to add developer team sample data
+        	try {
+        		insert probsToAddList;
+                System.debug(msg);
+            } 
+            catch (Exception e) {
+                msg = e.getMessage()+ ' '+ e.getLineNumber();
+                success = false;
+                System.debug(msg);
+                
+            } 
+            finally {
+                System.assertEquals(true, success, 'error inserting sample test problem'  + msg);
+            }
+
+            Problem__c problemAdded = (Problem__c ) [SELECT Id, Name FROM Problem__c LIMIT 1];
+
+            System.assertNotEquals(problemAdded, null, 'unable to find an sample problem');
+            
+            
+            Coding_Session_Problem__c codingSessionProblemToAdd = new Coding_Session_Problem__c();
+            codingSessionProblemToAdd.Coding_Session__c = codingSessionAdded.Id;
+            codingSessionProblemToAdd.Problem__c = problemAdded.Id;
+    
+            //test what happens when insert
+              success = true;
+              msg = 'able to insert test sample coding session problem';
+                    // use DML to add developer team sample data
+                try {
+                    insert codingSessionProblemToAdd;
+                    System.debug(msg);
+                } 
+                catch (System.DmlException e) {
+                    //ableToDelete = false;
+                   
+                    success = false;
+                    msg = e.getMessage();
+                    System.debug(e.getLineNumber());
+                    System.debug(msg);
+                    if (msg.contains(CustomExceptions.ERROR_MESSAGE_UNABLE_TO_UPDATE_DEV_TEAM_SLACK_MESS)){
+                        msg=msg+ 'custom error message shown for unable to add slack message, but was intending to update';
+                        System.debug(msg);
+                        success = false;
+                    }
+                    else{
+                        msg=msg+ 'Account DmlException exeption was caught, and custom error message not displayed';
+                        System.debug(msg);
+                        success = false;
+                    }
+                } 
+                catch (Exception e) {
+                    msg=e.getMessage();
+                    // System.assert(e.getMessage().contains('problem updating the developer team record for slack message.'));
+                    if (msg.contains(CustomExceptions.ERROR_MESSAGE_UNABLE_TO_UPDATE_DEV_TEAM_SLACK_MESS)){
+                        msg+= 'custom error message shown for unable to update developer team record with slack message, but intending to update.';
+                        System.debug(msg);
+                        success = false;
+                    }
+                    else{
+                       
+                        System.debug(msg);
+                        success = false;
+                    }
+                    
+                } 
+                finally {
+                    System.debug(msg);
+                    System.assertEquals(true, success, msg);
+        
+                }
+
+                
+
+    }
+    @isTest
+    public static void TP_CheckThatNoCodingSessionsHaveThisProblemBeforeDelete(){
+
+        Problem__c problemToDelete = (Problem__c ) [SELECT Id, Name FROM Problem__c LIMIT 1];
+        System.assertNotEquals(problemToDelete, null, 'unable to find an sample problem');
+        Boolean success = true;
+        String msg = 'able to insert delete sample coding session problem';
+            // use DML to add developer team sample data
+        try {
+            delete problemToDelete;
+            System.debug(msg);
+        } 
+        catch (CustomExceptions.DeletingProblemLinkedToCodingSessionException e) {
+            //ableToDelete = false;
+            
+        
+            msg = e.getMessage();
+            System.debug(e.getLineNumber());
+            System.debug(msg);
+            if (msg.contains(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION)){
+                msg=msg+ 'custom error message shown for custom exception as expected';
+                System.debug(msg);
+                success = true;
+            }
+            else{
+                msg=msg+ 'DeletingProblemLinkedToCodingSessionException exeption was caught, however, correct custom error message was not displayed';
+                System.debug(msg);
+                success = false;
+            }
+        } 
+        catch (System.DmlException e) {
+            //ableToDelete = false;
+            
+            success = false;
+            msg = e.getMessage();
+            System.debug(e.getLineNumber());
+            System.debug(msg);
+            if (msg.contains(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION)){
+                msg=msg+ 'custom error message shown for DmlException, but was intending to catch custom exception DeletingProblemLinkedToCodingSessionException';
+                System.debug(msg);
+                //it will put to pass, but not catching custom exception
+                success = true;
+            }
+            else{
+                msg=msg+ 'Account DmlException exeption was caught, and custom error message not displayed';
+                System.debug(msg);
+                success = false;
+            }
+        } 
+        catch (Exception e) {
+            success = false;
+            msg=e.getMessage()+'System.Exception caught on delete, but was intending catch custom exception.';
+            // System.assert(e.getMessage().contains('problem updating the developer team record for slack message.'));
+            if (msg.contains(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION)){
+                msg+= ' custom error message shown for deleting problem linked to coding session';
+                System.debug(msg);
+                
+            }
+            
+            
+        } 
+        finally {
+            System.debug(msg);
+            System.assertEquals(true, success, msg);
+
+        }
+        
+
+    }
+    @isTest
+    public static void TN_CheckThatNoCodingSessionsHaveThisProblemBeforeDelete(){
+
+        
+        Coding_Session_Problem__c[] codeSessProbList =[SELECT Id, Name, Problem__r.Id FROM Coding_Session_Problem__c];
+
+        List<Id> probIdsInCodingSessProbList = new List<Id>();
+        for (Coding_Session_Problem__c codSessProb:codeSessProbList){
+            probIdsInCodingSessProbList.add(codSessProb.Problem__r.Id);
+        }
+        //get list of problems that are not linked to any coding sessions
+        Problem__c[] sampleProblemList = [SELECT Id, Name FROM Problem__c WHERE Id NOT IN :probIdsInCodingSessProbList];
+        Problem__c[] problemListRemoveAnyWithCodingSessProblemsList = new List<Problem__c>();
+        
+        for(Integer i = (sampleProblemList.size()-1) ; i>= 0 ; i--){
+            Problem__c prob =(Problem__c) sampleProblemList[i];
+            if (!probIdsInCodingSessProbList.contains(prob.Id)) {
+                problemListRemoveAnyWithCodingSessProblemsList.add(prob);
+            }
+
+        }
+
+        System.assertNotEquals(true, sampleProblemList ==null || sampleProblemList.size()<1, 'unable to find any sample problems without coding sessions');
+        Boolean success = true;
+        String msg = 'able to insert delete problem';
+        String msgFail = 'not expecting error to be thrown without Problems linked to any Coding_Sessions';
+            // use DML to add developer team sample data
+        try {
+            delete problemListRemoveAnyWithCodingSessProblemsList;
+            System.debug(msg);
+        } 
+        catch (CustomExceptions.DeletingProblemLinkedToCodingSessionException e) {
+            //ableToDelete = false;
+            
+            success = false;
+            msg = e.getMessage();
+            System.debug(e.getLineNumber());
+            System.debug(msg);
+            if (msg.contains(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION)){
+                msg=msg+ 'custom error message shown for custom exception, ' + msgFail;
+                System.debug(msg);
+               
+            }
+            else{
+                msg=msg+ 'DeletingProblemLinkedToCodingSessionException exeption was caught, however, incorrect custom error message was displayed, and '+ msgFail;
+                System.debug(msg);
+                
+            }
+        } 
+        catch (System.DmlException e) {
+            //ableToDelete = false;
+            
+            success = false;
+            msg = e.getMessage();
+            System.debug(e.getLineNumber());
+            System.debug(msg);
+            if (msg.contains(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION)){
+                msg=msg+ 'custom error message shown for DmlException,' + msgFail+', but was not expecting an error to be thrown for problems without matching Coding_Session_Problems__c';
+                System.debug(msg);
+                success = false;
+            }
+            else{
+                msg=msg+ 'Account DmlException exeption was caught, custom error message not displayed, and '+msgFail;
+                System.debug(msg);
+                success = false;
+            }
+        } 
+        catch (Exception e) {
+            success = false;
+            msg=e.getMessage()+'System.Exception caught on delete, but '+ msgFail;
+            // System.assert(e.getMessage().contains('problem updating the developer team record for slack message.'));
+            if (msg.contains(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION)){
+                msg+= ' custom error message shown for deleting problem linked to coding session';
+                System.debug(msg);
+                
+            }
+            
+            
+        } 
+        finally {
+            System.debug(msg);
+            System.assertEquals(true, success, msg);
+
+        }
+    }
+
 //     final String DEVELOPER_TEAM_SAMPLE_NAME = 'test DTN';
 //     final String PROPBLEM_TEST_NAME = 'problem test NAME';
 //     final String PROBLEM_TEST_DESC = 'this is a test description';

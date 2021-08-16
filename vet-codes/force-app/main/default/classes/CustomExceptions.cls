@@ -2,7 +2,7 @@
  * @description       : Class for project custom exceptions
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-14-2021
+ * @last modified on  : 08-16-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -29,7 +29,8 @@ public with sharing class CustomExceptions {
         public class RecordLockedException extends Exception{}
         public class AuthorizationException extends Exception {}
         public class ClosedWonOrLostOpportunitiesExistException extends Exception {}
-        
+        public class DeletingProblemLinkedToCodingSessionException extends Exception {}
 
         public static String ERROR_MESSAGE_UNABLE_TO_UPDATE_DEV_TEAM_SLACK_MESS='problem updating the developer team record for slack message.';
+        public static String ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION='You are attempting to delete a Problem that is currently linked to a coding session, which is not allowed.';
 }
