@@ -29,9 +29,17 @@ public with sharing class CustomExceptions {
         public class RecordLockedException extends Exception{}
         public class AuthorizationException extends Exception {}
         public class ClosedWonOrLostOpportunitiesExistException extends Exception {}
-        public class DeletingProblemLinkedToCodingSessionException extends Exception {}
 
-        public static String ERROR_MESSAGE_UNABLE_TO_UPDATE_DEV_TEAM_SLACK_MESS='problem updating the developer team record for slack message.';
-        public static String ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION='You are attempting to delete a Problem that is currently linked to a coding session, which is not allowed.';
+        public class DeletingProblemLinkedToCodingSessionException extends Exception {}
+        final public static String ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION='You are attempting to delete a Problem that is currently linked to a coding session, which is not allowed.';
+
+
+        public class ErrorLinkingChildCodingSessionWhenInsertingStandupMeetingsException extends Exception {}
+        final public static String ERROR_MESSAGE_LINKING_CODING_SESSION_WHEN_INSERTING_STANDUP='Problem occured when updating unassinged coding sessions to new standup meeting when inserted.';
+
+
+        final public static String ERROR_MESSAGE_UNABLE_TO_UPDATE_DEV_TEAM_SLACK_MESS='problem updating the developer team record for slack message.';
+        
+       
         
 }
