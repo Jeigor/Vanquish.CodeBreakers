@@ -33,4 +33,5 @@ public with sharing class CustomExceptions {
 
         public static String ERROR_MESSAGE_UNABLE_TO_UPDATE_DEV_TEAM_SLACK_MESS='problem updating the developer team record for slack message.';
         public static String ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION='You are attempting to delete a Problem that is currently linked to a coding session, which is not allowed.';
+        
 }
