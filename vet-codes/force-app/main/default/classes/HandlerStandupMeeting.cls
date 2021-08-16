@@ -1,5 +1,5 @@
 /**
- * @description       : 
+ * @description       : Handler for the Standup Meeting object
  * @author            : Daniel Boice
  * @group             : 
  * @last modified on  : 08-16-2021
@@ -12,30 +12,34 @@ public with sharing class HandlerStandupMeeting {
     // public HandlerStandupMeeting() {
 
     // }
+
+    //method that is used in an after insert trigger for the standup meeting object that adds unlinked coding sessions to the earliest standup meeting added.
     public static void addStandupToUnassignedCodingSessions(List<Standup_Meeting__c> standupMeetingListAdded){
 
         // get unassinged coding sessions
         Coding_Session__c[] codSessList = [SELECT Id, Name, Standup_Meeting__c FROM Coding_Session__c WHERE Standup_Meeting__c = null ];
         
-        //if there are unassigned coding sessions, update those with the earliest standup meeting
+        //if there are unassigned coding sessions, update those with the earliest standup meeting that were inserted
         if(codSessList.size()>0){
             List<Standup_Meeting__c> standupMeetingSortedByMeetingDateList =new List <Standup_Meeting__c>();
             
-            //to check the sorting algorithum
+            //to get the earliest standup meeting in the list.
             List<Datetime> listOfDatetimes = new List<Datetime>();
             Standup_Meeting__c stumWithEarliestDateTime ; 
             for (Standup_Meeting__c stum : standupMeetingListAdded) {
                 listOfDatetimes.add(stum.Meeting_Date__c);
             }
+            //sort the list of datetimes 
             listOfDatetimes.sort();
             for(Standup_Meeting__c stum: standupMeetingListAdded){
+                //check if the standup meeting in the list matches the first sorted datetime
                 if (stum.Meeting_Date__c ==listOfDatetimes[0]) {
                     stumWithEarliestDateTime=stum;
                 }
             }
 
 
-            //sorting algorithm for the standup meetings based on datetimes if want to sort the whole list, but we only need the first one... so this is not needed
+            //sorting algorithm for the standup meetings based on datetimes if want to sort the whole list, but we only need the first one... so this is not needed, but may be usefule somewhere in the future.
             /*
             try {
                 for (Standup_Meeting__c stum : standupMeetingListAdded){
@@ -80,7 +84,6 @@ public with sharing class HandlerStandupMeeting {
             String msg = 'Able to update the coding sessions with earliest standup date.';
             try {
                 update codingSessionsToUpdate;
-                // System.debug('able to insert test developer team');
             } 
             catch (DmlException e) {
                 e.setMessage(e.getMessage()+CustomExceptions.ERROR_MESSAGE_LINKING_CODING_SESSION_WHEN_INSERTING_STANDUP);
