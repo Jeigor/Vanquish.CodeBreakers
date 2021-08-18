@@ -1,8 +1,8 @@
 /**
- * @description       : Tests the Handle Problem After Problem Insert Trigger Handler to send message to Slack developer team
+ * @description       : Tests the Handle Problem to prevent delete if the problem is linked to a coding session
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-16-2021
+ * @last modified on  : 08-18-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification

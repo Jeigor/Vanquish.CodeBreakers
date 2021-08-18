@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-16-2021
+ * @last modified on  : 08-18-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -13,8 +13,7 @@ public with sharing class HandlerProblem {
     /*
     
     
-     Updates the Developer team to send a slack Slack notification.  Will change this to a workflow or Process, shortly, just a demonstration
-    and practice of SOQL, Triggers, Exceptions, and Tests from week 2 
+    
 
 	
 	PProblem__c[] myProbList = [SELECT Id, Description__c FROM Problem__c WHERE Id = 'a1V5e000005eG82EAE' LIMIT 1];
@@ -30,7 +29,7 @@ public with sharing class HandlerProblem {
 
 	public static void checkThatNoCodingSessionsHaveThisProblemBeforeDelete ( List<Problem__c> probsToDelete) {
 
-	
+		//PREVENTS DELETE IF THERE ARE LINKED CODING SESSIONS
         
 		//get list of ids for the problems to delete
 		List<Id> probToDeleteIdList = new List<Id>();
@@ -43,7 +42,9 @@ public with sharing class HandlerProblem {
 
 		for (Coding_Session_Problem__c codSessProb :codingSessionProblemsLinkedToProblems){
 			if(probToDeleteIdList.contains(codSessProb.Problem__r.Id)){
-				throw new CustomExceptions.DeletingProblemLinkedToCodingSessionException(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION);
+				// throw new CustomExceptions.DeletingProblemLinkedToCodingSessionException(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION);
+				Problem__c prob =(Problem__c) probsToDelete[0];
+				prob.addError(CustomExceptions.ERROR_MESSAGE_DELETING_PROBLEM_LINKED_TO_CODING_SESSION);
 			}
 
 		}
