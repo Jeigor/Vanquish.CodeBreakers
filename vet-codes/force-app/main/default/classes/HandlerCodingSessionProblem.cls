@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-15-2021
+ * @last modified on  : 08-18-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -39,10 +39,6 @@ public with sharing class HandlerCodingSessionProblem {
 
         List<Coding_Session__c> codingSessionList = [SELECT Id,  Developer_Team_Developer__c, name FROM Coding_Session__c WHERE Id IN : codingSessionsInCSPIdList];
 
-       
-
-
-       
         List<Id> devTeamDevIDList = new List<Id>();
         
         for (Coding_Session__c codSess : codingSessionList ){

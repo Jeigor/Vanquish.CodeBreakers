@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : Daniel Boice
  * @group             : 
- * @last modified on  : 08-15-2021
+ * @last modified on  : 08-18-2021
  * @last modified by  : Daniel Boice
  * Modifications Log
  * Ver   Date         Author         Modification
@@ -15,7 +15,7 @@ public with sharing class HandlerCodingSessionProblemTest {
     // }
 
      /*
-     Tests updating of the Developer team to send a slack Slack notification.  Will change this to a workflow or Process, shortly, just a demonstration and practice of SOQL, Triggers, Exceptions, and Tests using best practices from week 2 
+     Tests Updating unassigned coding sessions to the earliest Standup Meeting date when New standup meetings are inserted.
     */
 
    
