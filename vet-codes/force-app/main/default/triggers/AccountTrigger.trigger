@@ -2,8 +2,8 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 08-09-2021
- * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @last modified on  : 08-12-2021
+ * @last modified by  : Daniel Boice
 **/
 trigger AccountTrigger on Account (before insert, before update, before delete, after insert, after update, after delete, after undelete ) {
 
@@ -15,7 +15,7 @@ trigger AccountTrigger on Account (before insert, before update, before delete, 
         
         }
         when BEFORE_DELETE {
-            HandlerAccount.handleAccountValidateOportunitiesNotClosed(trigger.new);
+            HandlerAccount.handleAccountDeleteValidateOportunitiesNotClosed(trigger.old);
         }
         when AFTER_INSERT {
 
