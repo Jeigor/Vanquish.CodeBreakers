@@ -1,8 +1,8 @@
 /************************************************ 
 
-Vanquish.CodeBreakers
+Vanquish.CodeBreakers P1 Austin
 
-Stand-up notes can be found in the stand-up branch.
+Push your code to the P1 branch with your name "CodeBreakers-P1 MemberName"
 
 **********************************************//*
 
