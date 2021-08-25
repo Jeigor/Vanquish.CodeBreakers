@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Must_Be_Sold_By_contact</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( Contact__c  =    Previously_Sold_Item__r.Contact__r.Id  , false, true)</errorConditionFormula>
+    <errorDisplayField>Previously_Sold_Item__c</errorDisplayField>
+    <errorMessage>Item must be sold by the contact listed</errorMessage>
+</ValidationRule>
