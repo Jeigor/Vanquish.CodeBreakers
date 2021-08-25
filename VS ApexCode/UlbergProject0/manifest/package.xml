@@ -28,10 +28,11 @@
 		<members>Account</members>
 		<members>Contact</members>
 		<members>Product2</members>
+        <members>*</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>*</members>
+    <members>*</members>
 		<name>CustomTab</name>
 	</types>
 	<types>
