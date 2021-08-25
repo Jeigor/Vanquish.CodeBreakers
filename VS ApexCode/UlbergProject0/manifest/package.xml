@@ -14,21 +14,29 @@
 		<members>CreateReview</members>
 		<name>ApexTrigger</name>
 	</types>
+	<!--
 	<types>
 		<members>*</members>
 		<name>ApprovalProcess</name>
 	</types>
+	-->
 	<types>
 		<members>Product2.Asking_Price__c</members>
 		<members>Product2.ComputerSpecs__c</members>
 		<members>Product2.Miles__c</members>
+		<members>*</members>
 		<name>CustomField</name>
 	</types>
 	<types>
 		
 		<members>Contact</members>
+		<members>User</members>
+		<members>Previously_Sold_Item__c</members>
+		<members>Rating__c</members>
+		<members>CurrentOffer__c</members>
 		<members>Product2</members>
-		<members>*</members>
+
+		<!--<members>*</members>-->
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -54,10 +62,12 @@
 		<members>*</members>
 		<name>HomePageLayout</name>
 	</types>
+	<!--
 	<types>
 		<members>*</members>
 		<name>Profile</name>
 	</types>
+	-->
 	<types>
 		<members>Product2.Cars</members>
 		<members>Product2.Electronics</members>
@@ -69,8 +79,8 @@
 		<name>Settings</name>
 	</types>
 	<types>
-		<members>Account</members>
-		<members>AccountBrand</members>
+		<!-- <members>Account</members> -->
+		<!-- <members>AccountBrand</members> -->
 		<members>AlternativePaymentMethod</members>
 		<members>Asset</members>
 		<members>BatchJob</members>
@@ -113,5 +123,5 @@
 		<members>Product2.WatchItem</members>
 		<name>WorkflowTask</name>
 	</types>
-	<version>51.0</version>
+	<version>52.0</version>
 </Package>
