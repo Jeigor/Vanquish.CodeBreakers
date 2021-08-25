@@ -112,6 +112,7 @@
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
+    <!-- 
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
@@ -120,6 +121,7 @@
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
     </actionOverrides>
+    -->
     <actionOverrides>
         <actionName>View</actionName>
         <type>Default</type>
@@ -149,5 +151,5 @@
         <searchResultsAdditionalFields>PRODUCT2.DESCRIPTION</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PRODUCT2.FAMILY</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+  <!--  <sharingModel>ReadWrite</sharingModel>-->
 </CustomObject>

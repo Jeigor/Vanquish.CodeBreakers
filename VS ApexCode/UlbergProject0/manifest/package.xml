@@ -25,9 +25,10 @@
 		<name>CustomField</name>
 	</types>
 	<types>
-		<members>Account</members>
+		
 		<members>Contact</members>
 		<members>Product2</members>
+		<members>*</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
@@ -80,7 +81,7 @@
 		<members>Contact</members>
 		<members>FlowInterview</members>
 		<members>FlowInterviewLog</members>
-		<members>Product2</members>
+		
 		<name>SharingRules</name>
 	</types>
 	<types>
