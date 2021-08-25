@@ -70,18 +70,7 @@
 	</types>
 	<types>
 		<members>Account</members>
-		<members>AccountBrand</members>
-		<members>AlternativePaymentMethod</members>
-		<members>Asset</members>
-		<members>BatchJob</members>
-		<members>CalendarModel</members>
-		<members>CalendarView</members>
-		<members>Campaign</members>
-		<members>Case</members>
 		<members>Contact</members>
-		<members>FlowInterview</members>
-		<members>FlowInterviewLog</members>
-		<members>Product2</members>
 		<name>SharingRules</name>
 	</types>
 	<types>
