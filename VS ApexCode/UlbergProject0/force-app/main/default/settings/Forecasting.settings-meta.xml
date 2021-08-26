@@ -229,23 +229,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -286,11 +286,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -448,23 +448,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -505,11 +505,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -671,23 +671,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -729,11 +729,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -891,23 +891,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -948,11 +948,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -1114,23 +1114,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1172,11 +1172,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -1334,23 +1334,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1391,11 +1391,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -1557,23 +1557,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1615,11 +1615,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -1777,23 +1777,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -1834,11 +1834,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -2000,23 +2000,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2058,11 +2058,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -2220,23 +2220,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2277,11 +2277,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -2443,23 +2443,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2501,11 +2501,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>
@@ -2663,23 +2663,23 @@
             <label>Last Modified Date</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjix</field>
+            <field>00N5f0000036lSQ</field>
             <label>Current Generator(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiy</field>
+            <field>00N5f0000036lSR</field>
             <label>Delivery/Installation Status</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjiz</field>
+            <field>00N5f0000036lSS</field>
             <label>Main Competitor(s)</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj0</field>
+            <field>00N5f0000036lST</field>
             <label>Order Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSU</field>
             <label>Tracking Number</label>
         </opportunityListFieldsLabelMappings>
         <opportunityListFieldsLabelMappings>
@@ -2720,11 +2720,11 @@
             <field>OPPORTUNITY.LAST_ACTIVITY</field>
             <field>OPPORTUNITY.CREATED_DATE</field>
             <field>OPPORTUNITY.LAST_UPDATE</field>
-            <field>00N5e00000ZSjix</field>
-            <field>00N5e00000ZSjiy</field>
-            <field>00N5e00000ZSjiz</field>
-            <field>00N5e00000ZSjj0</field>
-            <field>00N5e00000ZSjj1</field>
+            <field>00N5f0000036lSQ</field>
+            <field>00N5f0000036lSR</field>
+            <field>00N5f0000036lSS</field>
+            <field>00N5f0000036lST</field>
+            <field>00N5f0000036lSU</field>
             <field>PARTNER.NAME</field>
         </opportunityListFieldsUnselectedSettings>
         <quotasSettings>

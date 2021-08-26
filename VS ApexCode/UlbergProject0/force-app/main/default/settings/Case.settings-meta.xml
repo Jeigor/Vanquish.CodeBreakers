@@ -11,9 +11,9 @@
     <caseMergeInLightning>false</caseMergeInLightning>
     <closeCaseThroughStatusChange>false</closeCaseThroughStatusChange>
     <defaultCaseFeedLayoutOn>true</defaultCaseFeedLayoutOn>
-    <defaultCaseOwner>wsempathy@brave-shark-5267fr.com</defaultCaseOwner>
+    <defaultCaseOwner>danielb@creative-raccoon-32r7rk.com</defaultCaseOwner>
     <defaultCaseOwnerType>User</defaultCaseOwnerType>
-    <defaultCaseUser>wsempathy@brave-shark-5267fr.com</defaultCaseUser>
+    <defaultCaseUser>danielb@creative-raccoon-32r7rk.com</defaultCaseUser>
     <emailToCase>
         <enableEmailToCase>false</enableEmailToCase>
     </emailToCase>

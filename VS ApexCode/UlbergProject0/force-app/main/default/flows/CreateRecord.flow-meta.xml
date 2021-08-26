@@ -212,7 +212,7 @@
             <targetReference>Create_An_Offer</targetReference>
         </connector>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>CurrentOffer</name>
         <dataType>SObject</dataType>
