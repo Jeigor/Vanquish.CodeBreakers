@@ -1,0 +1,57 @@
+<!--
+  @description       : 
+  @author            : Daniel Boice
+  @group             : 
+  @last modified on  : 08-27-2021
+  @last modified by  : Daniel Boice
+  Modifications Log
+  Ver   Date         Author         Modification
+  1.0   08-27-2021   Daniel Boice   Initial Version
+-->
+<apex:page standardController="Product2">
+  <apex:stylesheet
+    value="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/> -->
+
+  <style type="text/css">
+    body {
+      background: linear-gradient(to right, #c04848, #480048);
+      min-height: 100vh;
+    }
+    ul,
+    form {
+      background: linear-gradient(to right, #c04848, #480048);
+    }
+    .text-gray {
+      color: #aaa;
+    }
+
+    img {
+      height: 170px;
+      width: 140px;
+    }
+    .activeRow {
+      background-color: red;
+    }
+  </style>
+  <div class="container py-5">
+    <div class="row text-center text-white mb-5">
+      <div class="col-lg-7 mx-auto">
+        <h1 class="display-4">Product Detail</h1>
+      </div>
+    </div>
+    <apex:pageBlock>
+      <apex:pageBlockSection>
+        Product: {! Product2.Name } <br /> Description: {! Product2.Description
+        } <br /> Price: {! Product2.Asking_Price__c } <br />
+      </apex:pageBlockSection>
+      <img
+        src="{!Product2.DisplayUrl}"
+        alt="Generic placeholder image"
+        width="200"
+        class="ml-lg-5 order-1 order-lg-2"
+      />
+    </apex:pageBlock>
+  </div>
+</apex:page>

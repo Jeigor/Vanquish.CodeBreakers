@@ -1,0 +1,11 @@
+{
+  "sfdxHardisLabel": "Active Products",
+  "sfdxHardisDescription": "Active products are used for scratch org initialization and deployments",
+  "objects": [
+    {
+      "query": "SELECT all FROM Account WHERE Name='sfdx-hardis'",
+      "operation": "Upsert",
+      "externalId": "Name"
+    }
+  ]
+}
