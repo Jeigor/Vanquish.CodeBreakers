@@ -67,8 +67,8 @@
               />
             </p>
             <div class="d-flex align-items-center justify-content-between mt-1">
-              <h6 class="font-weight-bold my-2">
-                <apex:outputText value="{!pdct.Asking_Price__c}" />
+              <h6 class="font-weight-bold text-white my-2">
+                <apex:outputField value="{!pdct.Asking_Price__c}" />
               </h6>
               <ul class="list-inline small">
                 <li class="list-inline-item m-0">
@@ -88,9 +88,13 @@
                 </li>
               </ul>
               <!-- <apex:commandButton action="{!view}" value="View" />  -->
-              <!-- <apex:outputLink value="/{!pdct.id}" target="_blank">Add</apex:outputLink> -->
-              <apex:outputText value="{!detailURL}" />
-              <apex:outputLink value="{!detailURL}">
+              <!-- <apex:outputLink value="/{!pdct.id}" target="_self">Add</apex:outputLink> -->
+              <!-- <apex:outputText value="{!detailURL}"/> -->
+              <apex:outputLink
+                styleClass="btn btn-outline-primary"
+                target="_self"
+                value="{!detailURL}"
+              >
                 View Details
                 <apex:param name="id" value="{!pdct.id}" />
               </apex:outputLink>
