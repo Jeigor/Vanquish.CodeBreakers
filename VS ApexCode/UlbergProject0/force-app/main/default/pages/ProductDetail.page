@@ -1,0 +1,132 @@
+<!--
+  @description       : 
+  @author            : Daniel Boice
+  @group             : 
+  @last modified on  : 08-27-2021
+  @last modified by  : Daniel Boice
+  Modifications Log
+  Ver   Date         Author         Modification
+  1.0   08-27-2021   Daniel Boice   Initial Version
+-->
+<apex:page standardController="Product2">
+  <apex:stylesheet
+    value="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+  />
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/> -->
+
+  <style type="text/css">
+    body {
+      background: linear-gradient(to right, #c04848, #480048);
+      min-height: 100vh;
+    }
+    ul,
+    form {
+      background: linear-gradient(to right, #c04848, #480048);
+    }
+    .text-gray {
+      color: #aaa;
+    }
+
+    img {
+      height: 340px;
+      width: 280px;
+    }
+    .activeRow {
+      background-color: red;
+    }
+    .centerBlock {
+      display: table;
+      margin-left: 55px;
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+    .rightBlock {
+      display: table;
+      margin-left: 45px;
+      padding-right: 15;
+      margin-bottom: 0px;
+    }
+  </style>
+  <div class="container">
+    <div class="row text-center text-white mb-5" style="margin-top: 20px">
+      <div class="col-lg-7 mx-auto">
+        <h1 class="display-4">Product Detail</h1>
+      </div>
+    </div>
+    <!-- <apex:pageBlock >
+        <apex:pageBlockSection >
+                                    -->
+    <div
+      class="d-flex align-items-center justify-content-between mt-1"
+      style="margin-left: 120px"
+    >
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <!--<a class="btn btn-outline-primary" href="javascript:history.back()" role="button">Go Back to List</a>-->
+          <apex:outputLink
+            styleClass="btn btn-outline-primary"
+            value="javascript:history.back()"
+          >
+            Back
+          </apex:outputLink>
+          <!-- <a href="javascript:history.back()">Go Back to List</a> -->
+          <h5 class="mt-0 font-weight-bold mb-2">
+            <apex:outputText
+              styleClass="list-group-item"
+              value="{!Product2.Name}"
+            />
+          </h5>
+          <p class="font-italic text-muted mb-0 medium">
+            <apex:outputText
+              styleClass="list-group-item"
+              value="{!Product2.Description}"
+            />
+          </p>
+
+          <!-- <a href="" class="btn btn-primary">
+    <span class="glyphicon glyphicon-th-list">Add To Cart</span> 
+</a>
+                                    
+                                    -->
+          <!--<p class="font-italic text-muted mb-0 small"> <apex:outputField styleClass="list-group-item" value="{!Product2.Asking_Price__c}"/></h4>
+                                    -->
+        </div>
+        <!--  Product: {! Product2.Name } <br/>
+            Description: {! Product2.Description } <br/>
+            Price: {! Product2.Asking_Price__c } <br/>-->
+        <div class="col-4 text-start">
+          <br />
+          <img
+            src="{!Product2.DisplayUrl}"
+            alt="Generic placeholder image"
+            style="margin-top: 5px; margin-left: -25px"
+          />
+          <br />
+
+          <div class="centerBlock">
+            <h4 class="mt-0 text-white font-weight-bold">
+              <apex:outputField
+                style="margin-top: 15px; margin-left: -85px"
+                value="{!Product2.Asking_Price__c}"
+              />
+            </h4>
+            <br />
+            <apex:outputLink
+              styleClass="btn btn-outline-primary"
+              style="margin-top: 5px; margin-left: 15px"
+              value="javascript:history.back()"
+            >
+              Add to Cart
+            </apex:outputLink>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+                                    -->
+  </div>
+</apex:page>
