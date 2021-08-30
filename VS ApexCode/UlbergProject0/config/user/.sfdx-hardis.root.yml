@@ -1,0 +1,10 @@
+installedApps:
+  - git
+restDeployDisabled: true
+sfdxPluginsStdout: |
+  sfdmu 4.4.5
+  sfdx-essentials 2.10.0
+  sfdx-git-delta 4.8.1
+  sfdx-hardis 2.47.3
+  sfpowerkit 3.2.2
+  texei-sfdx-plugin 1.11.0
