@@ -5,6 +5,7 @@
 		<members>TestHelper</members>
 		<members>TriggerHandler</members>
         <members>ControlAccounts</members>
+        <members>ProductListPageControllerExtension</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -16,6 +17,7 @@
     
 	<types>
 		<members>AccountDisplayEdit</members>
+        <members>ProductList</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
