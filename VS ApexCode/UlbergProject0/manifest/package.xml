@@ -4,8 +4,7 @@
 		<members>TestHandler</members>
 		<members>TestHelper</members>
 		<members>TriggerHandler</members>
-		<members>tt_UtilController</members>
-		<members>tt_UtilControllerTest</members>
+        <members>ControlAccounts</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -13,6 +12,11 @@
 		<members> TestTrigger </members>
 		<members>CreateReview</members>
 		<name>ApexTrigger</name>
+	</types>
+    
+	<types>
+		<members>AccountDisplayEdit</members>
+		<name>ApexPage</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -25,7 +29,6 @@
 		<name>CustomField</name>
 	</types>
 	<types>
-		<members>Account</members>
 		<members>Contact</members>
 		<members>Product2</members>
         <members>*</members>
@@ -55,7 +58,7 @@
 		<name>HomePageLayout</name>
 	</types>
 	<types>
-		<members>*</members>
+		<members>CustomerProfile</members>
 		<name>Profile</name>
 	</types>
 	<types>
@@ -69,7 +72,7 @@
 		<name>Settings</name>
 	</types>
 	<types>
-		<members>Account</members>
+		
 		<members>Contact</members>
 		<name>SharingRules</name>
 	</types>

@@ -1,14 +1,48 @@
-<apex:page >
-<apex:pageBlock >
-<apex:pageBlockSection title="Your Account Information">
+<apex:page standardController="Account"  extensions="ControlAccounts">
+<apex:stylesheet value="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
+<apex:stylesheet value="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/> -->
 
+  <style type="text/css">
+    body {
+      background: linear-gradient(to right, #c04848, #480048);
+      min-height: 100vh;
+    }
+    ul,
+    form {
+      background: linear-gradient(to right, #c04848, #480048);
+    }
+    .text-gray {
+      color: #aaa;
+    }
 
+    img {
+      height: 170px;
+      width: 140px;
+    }
+    .activeRow {
+      background-color: red;
+    }
+  </style>
+
+<apex:form >
+    <apex:pageBlock >
+<apex:pageBlockSection title="Get Your Account Information">
+<apex:inputText value="{!AccsName}" label="AccountName" />
+  
+     <apex:inputText value="{!BillState}" id="BillingState"/>
+    <apex:inputText value="{!BillStreet}" id="BillingStreet"/>
+     <apex:inputText value="{!BillCity}" id="BillingCity"/>
+      <apex:inputText value="{!BillPc}" id="BillingPc"/>
+    
 </apex:pageBlockSection>>
 
+         <apex:commandButton value="Save or update your billing information" action="{!GetAcc}" /> 
+        <apex:outputText value="{!errorMessage}"/>
+       
+        
 </apex:pageBlock>
 
-  <!-- Begin Default Content REMOVE THIS -->
-  <h1>Congratulations</h1>
-  This is your new Page
-  <!-- End Default Content REMOVE THIS -->
+</apex:form>
 </apex:page>
