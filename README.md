@@ -13,7 +13,7 @@ Deploy Notes
 
 5th Products, then current offer then contact object
 
-6th flows, 
+6th flows, Classes, 
 
 
 
