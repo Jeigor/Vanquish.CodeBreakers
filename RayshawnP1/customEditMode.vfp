@@ -1,0 +1,9 @@
+<apex:component controller="editModeComponentController">
+	<apex:attribute name="value" type="String" description="Enable editMode."
+		assignTo="{!selectedValue}"/>
+	<p>
+	Value = {!value}<br/>
+	selectedValue = {!selectedValue}<br/>
+	EditMode = {!EditMode}
+	</p>
+</apex:component>
