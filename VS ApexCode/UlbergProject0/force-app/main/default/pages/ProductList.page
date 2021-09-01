@@ -8,19 +8,30 @@
   Ver   Date         Author         Modification
   1.0   08-27-2021   Daniel Boice   Initial Version
 -->
-<apex:page
-  standardController="Product2"
-  extensions="ProductListPageControllerExtension"
+<apex:page standardController="Product2"
+  recordSetVar="pdcts"
 >
-  <apex:stylesheet
-    value="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  />
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/> -->
+ <apex:stylesheet value="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 
+  <!--<apex:stylesheet value="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"/>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+<!-- 
+<script type="text/javascript">
+$(document).ready(function(){
+  $(':root').css("--windowHeight", $( window ).height() );
+    $( window ).resize(function() {
+    $(':root').css("--windowHeight", $( window ).height() );
+});
+});
+</script>
+-->
   <style type="text/css">
     body {
       background: linear-gradient(to right, #c04848, #480048);
       min-height: 100vh;
+                                 
     }
     ul,
     form {
@@ -37,32 +48,116 @@
     .activeRow {
       background-color: red;
     }
+ .modal-dialog {
+    max-width:1300px;
+    width: 1300px;
+      /*
+      margin-top: calc( var(--windowHeight) / 2 );
+      */
+}
+      
   </style>
+<script>
+    function loadnewpage(newsrc, pdctName){
+          //var newloc = newsrc;
+          //alert(newsrc);
+          //document.location.href = newloc;
+          document.getElementById('iframe_a').setAttribute('src', newsrc);
+          document.getElementById('basicModalLabel').innerText = pdctName;
+          //var myModal = new bootstrap.Modal(document.getElementById('scrollingModal'), options)
+        
+    }
+    function getDetailURL() {
+    return 'https://' +
+      'brave-shark-5267fr-dev-ed--c.visualforce.com' +
+      '/apex/ProductDetail';
+  }
+    
+</script>
+    
+ 
+<script>
+ 
+var myModal = new bootstrap.Modal(document.getElementById('scrollingModal'), options)
+ 
+ 
+ 
+ 
+</script>
+ 
+ 
+ 
+ 
+ 
+ 
+<!-- Modal -->
+ 
+<div class="modal fade " style="width:1200;" id="scrollingModal" tabindex="-1" aria-labelledby="basicModalLabel" aria-hidden="true">
+ 
+  <div class="modal-dialog modal-lg " >
+ 
+    <div class="modal-content">
+ 
+      <div class="modal-header">
+ 
+        <h5 class="modal-title" id="basicModalLabel">Heading of Scrollable Modal Here</h5>
+ 
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ 
+      </div>
+ 
+      <div class="modal-body">
+ 	<apex:iframe src="https://brave-shark-5267fr-dev-ed--c.visualforce.com/apex/ProductDetail?id=01t5e000002wHTXAA2" id="iframe_a" height="800px"/>
+            
+ 
+      </div>
+ 
+      <div class="modal-footer">
+ 
+        
+ 
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Continue Shopping</button>       
+ 
+      </div>
+ 
+    </div>
+ 
+  </div>
+ 
 
-  <div class="container py-5">
+ 
+ 
+ 
+ 
+</div>
+ 
+ 
+ 
+
+  <div class="container py-5" style="background: linear-gradient(to right, #c04848, #480048);">
     <div class="row text-center text-white mb-5">
       <div class="col-lg-7 mx-auto">
         <h1 class="display-4">Product List</h1>
       </div>
     </div>
-    <apex:form>
-      <apex:dataList
-        styleClass="list-group shadow"
-        value="{!Products}"
+  <apex:pageBlock title="Viewing Products" id="products_list">
+      <apex:form id="theForm">
+         
+ 		
+       <apex:dataList value="{!pdcts}"
         var="pdct"
+                      type="1"
       >
         <!-- Custom content-->
         <div class="media align-items-lg-center flex-column flex-lg-row p-3">
           <div class="media-body order-2 order-lg-1">
             <h5 class="mt-0 font-weight-bold mb-2">
-              <apex:outputText
-                styleClass="list-group-item"
+              <apex:outputText styleClass="list-group-item"
                 value="{!pdct.Name}"
               />
             </h5>
             <p class="font-italic text-muted mb-0 small">
-              <apex:outputText
-                styleClass="list-group-item"
+              <apex:outputText styleClass="list-group-item"
                 value="{!pdct.Description}"
               />
             </p>
@@ -90,27 +185,62 @@
               <!-- <apex:commandButton action="{!view}" value="View" />  -->
               <!-- <apex:outputLink value="/{!pdct.id}" target="_self">Add</apex:outputLink> -->
               <!-- <apex:outputText value="{!detailURL}"/> -->
-              <apex:outputLink
-                styleClass="btn btn-outline-primary"
-                target="_self"
-                value="{!detailURL}"
-              >
-                View Details
-                <apex:param name="id" value="{!pdct.id}" />
-              </apex:outputLink>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" onClick="loadnewpage('https://brave-shark-5267fr-dev-ed--c.visualforce.com/apex/ProductDetail?id='+'{!pdct.id}', '{!pdct.Name}');" data-bs-target="#scrollingModal">View Detail</button>
+            
             </div>
           </div>
+            
           <img
             src="{!pdct.DisplayUrl}"
             alt="Generic placeholder image"
             width="200"
             class="ml-lg-5 order-1 order-lg-2"
           />
+            
+            
         </div>
         <!-- End -->
       </apex:dataList>
+     <!-- Pagination -->
+<table style="width: 100%"><tr>
+    <td>
+        <!-- Page X of Y -->
+       <p style="color: #ccc;"> Page:</p> <apex:outputText style="color: #ccc;"
+    value=" {!PageNumber} of {! CEILING(ResultSize / PageSize) }"/>
+    </td>
+    <td align="center">
+       <!-- active -->
+<apex:commandLink style="color: #ccc;" action="{! Previous }" value="« Previous"
+     rendered="{! HasPrevious }"/>
+<!-- inactive (no earlier pages) -->
+<apex:outputText style="color: DarkGray;" value="« Previous"
+     rendered="{! NOT(HasPrevious) }"/>
+&nbsp;&nbsp;
+<!-- Next page -->
+<!-- active -->
+<apex:commandLink style="color: #ccc;" action="{! Next }" value="Next »"
+     rendered="{! HasNext }"/>
+<!-- inactive (no more pages) -->
+<apex:outputText style="color:DarkGray;" value="Next »"
+     rendered="{! NOT(HasNext) }"/>
+    </td>
+    <td align="right">
+        <!-- Records per page -->
+        
+ <p style="color: #ccc;">
+     
+       Records per page: </p>
+<apex:selectList value="{! PageSize }" size="1">
+    <apex:selectOption itemValue="5" itemLabel="5"/>
+    <apex:selectOption itemValue="10" itemLabel="10"/>
+    <apex:selectOption itemValue="20" itemLabel="20"/>
+    <apex:actionSupport event="onchange" reRender="products_list"/>
+</apex:selectList>
+    </td>
+</tr></table>
+           
       <!--
-        	<apex:pageBlockTable  id="pdctTable" value="{!pdcts}" var="pdct" >
+            <apex:pageBlockTable  id="pdctTable" value="{!pdcts}" var="pdct" >
                 <apex:column value="{!pdct.Name}" />
                 <apex:column value="{!pdct.ComputerSpecs__c}" />
                 <apex:column value="{!pdct.Model_of_car__c}" />
@@ -118,88 +248,15 @@
                 <apex:column value="{!pdct.Year_of_car__c}" />
             </apex:pageBlockTable>
            -->
-
-      <!-- <apex:commandButton action="{!first}" value="First"/>
-    	<apex:commandButton action="{!previous}" value="Previous"/>
+<!--
+      <apex:commandButton action="{!first}" value="First"/>
+        <apex:commandButton action="{!previous}" value="Previous"/>
         <apex:commandButton action="{!next}" value="Next"/>
-        <apex:commandButton action="{!last}" value="Last"/> -->
-    </apex:form>
+        <apex:commandButton action="{!last}" value="Last"/>
+-->    
+</apex:form>
+       </apex:pageBlock>
   </div>
 
-  <script>
-    j$ = jQuery.noConflict();
-    j$(document).ready(function () {
-      // first row assigned activeRow class
-      j$('[id$="pdctTable"]').find("tr.first").addClass(".row");
-
-      j$('[id$="pdctTable"] tr').click(function () {
-        // remove activeRow class from previous row
-        j$(".row").removeClass("row");
-        // assign activeRow class to recently clicked row
-        j$(this).addClass("activeRow");
-      });
-    });
-  </script>
-  <div class="container py-5">
-    <div class="row text-center text-white mb-5">
-      <div class="col-lg-7 mx-auto">
-        <h1 class="display-4">Product List</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <!-- List group-->
-        <ul class="list-group shadow">
-          <!-- list group item-->
-          <li class="list-group-item">
-            <!-- Custom content-->
-            <div
-              class="media align-items-lg-center flex-column flex-lg-row p-3"
-            >
-              <div class="media-body order-2 order-lg-1">
-                <h5 class="mt-0 font-weight-bold mb-2">
-                  Apple iPhone XR (Red, 128 GB)
-                </h5>
-                <p class="font-italic text-muted mb-0 small">
-                  128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera |
-                  7MP Front Camera A12 Bionic Chip Processor
-                </p>
-                <div
-                  class="d-flex align-items-center justify-content-between mt-1"
-                >
-                  <h6 class="font-weight-bold my-2">₹64,999</h6>
-                  <ul class="list-inline small">
-                    <li class="list-inline-item m-0">
-                      <i class="fa fa-star text-success"></i>
-                    </li>
-                    <li class="list-inline-item m-0">
-                      <i class="fa fa-star text-success"></i>
-                    </li>
-                    <li class="list-inline-item m-0">
-                      <i class="fa fa-star text-success"></i>
-                    </li>
-                    <li class="list-inline-item m-0">
-                      <i class="fa fa-star text-success"></i>
-                    </li>
-                    <li class="list-inline-item m-0">
-                      <i class="fa fa-star-o text-gray"></i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <img
-                src="https://i.imgur.com/KFojDGa.jpg"
-                alt="Generic placeholder image"
-                width="200"
-                class="ml-lg-5 order-1 order-lg-2"
-              />
-            </div>
-            <!-- End -->
-          </li>
-          <!-- End -->
-        </ul>
-        <!-- End -->
-      </div>
-    </div>
-  </div>
+ 
 </apex:page>

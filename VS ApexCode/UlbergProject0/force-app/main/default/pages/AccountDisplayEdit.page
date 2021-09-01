@@ -1,7 +1,6 @@
 <apex:page standardController="Account"  extensions="ControlAccounts">
 <apex:stylesheet value="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" />
-<apex:stylesheet value="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  />
+ 
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/> -->
 
   <style type="text/css">
@@ -31,10 +30,15 @@
 <apex:pageBlockSection title="Get Your Account Information">
 <apex:inputText value="{!AccsName}" label="AccountName" />
   
-     <apex:inputText value="{!BillState}" id="BillingState"/>
-    <apex:inputText value="{!BillStreet}" id="BillingStreet"/>
-     <apex:inputText value="{!BillCity}" id="BillingCity"/>
-      <apex:inputText value="{!BillPc}" id="BillingPc"/>
+     <apex:inputText value="{!BillState}" label="BillingState"/>
+    <apex:inputText value="{!BillStreet}" label="BillingStreet"/>
+     <apex:inputText value="{!BillCity}" label="BillingCity"/>
+      <apex:inputText value="{!BillPc}" label="BillingPc"/>
+                                  <br/>
+    <apex:inputText value="{!ShipState}" label="ShippingState"/>
+    <apex:inputText value="{!ShipStreet}" label="ShippingStreet"/>
+     <apex:inputText value="{!ShipCity}" label="ShippingCity"/>
+      <apex:inputText value="{!ShipPc}" label="ShippingPc"/>
     
 </apex:pageBlockSection>>
 

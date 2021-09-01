@@ -10,6 +10,10 @@ public class ControlAccounts {
     public String BillCity{get;set;}
     public String BillStreet{get;set;}
         public String BillPc{get;set;}
+    public String ShipState{get;set;}
+    public String ShipCity{get;set;}
+    public String ShipStreet{get;set;}
+    public String ShipPc{get;set;}
     public String errorMessage{get;set;}
    public list<Account> AccList;
 
@@ -35,7 +39,10 @@ public class ControlAccounts {
             acc.BillingCity = BillCity;
             acc.BillingStreet = BillStreet;
             acc.BillingPostalCode = BillPc;
-            
+            acc.ShippingState = ShipState;
+            acc.ShippingCity = ShipCity;
+            acc.ShippingStreet = ShipStreet;
+            acc.ShippingPostalCode = ShipPc;
             this.errorMessage = 'Updated your billing info';
             
        	 } 
