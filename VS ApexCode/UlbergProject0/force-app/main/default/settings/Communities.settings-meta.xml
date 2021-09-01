@@ -6,7 +6,7 @@
     <canModerateAllFeedPosts>false</canModerateAllFeedPosts>
     <embeddedVisualforcePages>false</embeddedVisualforcePages>
     <enableCommunityWorkspaces>true</enableCommunityWorkspaces>
-    <enableCspContactVisibilityPref>false</enableCspContactVisibilityPref>
+    <enableCspContactVisibilityPref>true</enableCspContactVisibilityPref>
     <enableCspNotesOnAccConPref>true</enableCspNotesOnAccConPref>
     <enableEnablePRM>false</enableEnablePRM>
     <enableExternalAccHierPref>false</enableExternalAccHierPref>
@@ -19,9 +19,9 @@
     <enableNetworksEnabled>true</enableNetworksEnabled>
     <enableOotbProfExtUserOpsEnable>false</enableOotbProfExtUserOpsEnable>
     <enablePRMAccRelPref>false</enablePRMAccRelPref>
-    <enablePowerCustomerCaseStatus>false</enablePowerCustomerCaseStatus>
+    <enablePowerCustomerCaseStatus>true</enablePowerCustomerCaseStatus>
     <enablePreventBadgeGuestAccess>false</enablePreventBadgeGuestAccess>
     <enableRelaxPartnerAccountFieldPref
-  >false</enableRelaxPartnerAccountFieldPref>
+  >true</enableRelaxPartnerAccountFieldPref>
     <enableUnsupportedBrowserModalPref>true</enableUnsupportedBrowserModalPref>
 </CommunitiesSettings>

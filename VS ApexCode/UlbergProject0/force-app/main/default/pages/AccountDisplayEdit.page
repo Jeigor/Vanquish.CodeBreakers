@@ -35,9 +35,14 @@
         <apex:inputText value="{!BillState}" label="BillingState" />
         <apex:inputText value="{!BillStreet}" label="BillingStreet" />
         <apex:inputText value="{!BillCity}" label="BillingCity" />
+        <apex:inputText value="{!BillPc}" label="BillingPc" />
+        <br />
+        <apex:inputText value="{!ShipState}" label="ShippingState" />
+        <apex:inputText value="{!ShipStreet}" label="ShippingStreet" />
+        <apex:inputText value="{!ShipCity}" label="ShippingCity" />
         <apex:inputText
-          value="{!BillPc}"
-          label="BillingPc"
+          value="{!ShipPc}"
+          label="ShippingPc"
         /> </apex:pageBlockSection
       >>
 

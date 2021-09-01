@@ -34,10 +34,12 @@
 		<members>*</members>
 		<name>CustomTab</name>
 	</types>
+	<!--
 	<types>
 		<members>*</members>
 		<name>Flow</name>
 	</types>
+	-->
 	<types>
 		<members>CreatePrevSoldItem</members>
 		<members>CreateRecord</members>
@@ -63,6 +65,7 @@
 		<members>*</members>
 		<name>Settings</name>
 	</types>
+	<!--
 	<types>
 		<members>AlternativePaymentMethod</members>
 		<members>Asset</members>
@@ -76,6 +79,7 @@
 		<members>FlowInterviewLog</members>
 		<name>SharingRules</name>
 	</types>
+	
 	<types>
 		<members>CurrentOffer__c.Product_Exists</members>
 		<members>Rating__c.Must_Be_Sold_By_contact</members>
@@ -86,6 +90,7 @@
 		<members>*</members>
 		<name>Workflow</name>
 	</types>
+	-->
 	<types>
 		<members>CurrentOffer__c.DenyApproval</members>
 		<members>CurrentOffer__c.EmailWhenApproved</members>
