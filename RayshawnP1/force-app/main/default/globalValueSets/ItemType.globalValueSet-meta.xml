@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Car</fullName>
+        <default>false</default>
+        <label>Car</label>
+    </customValue>
+    <customValue>
+        <fullName>Computer</fullName>
+        <default>false</default>
+        <label>Computer</label>
+    </customValue>
+    <customValue>
+        <fullName>Electronics</fullName>
+        <default>false</default>
+        <label>Electronics</label>
+    </customValue>
+    <customValue>
+        <fullName>Clothes</fullName>
+        <default>false</default>
+        <label>Clothes</label>
+    </customValue>
+    <customValue>
+        <fullName>Tools</fullName>
+        <default>false</default>
+        <label>Tools</label>
+    </customValue>
+    <customValue>
+        <fullName>Kids Toys</fullName>
+        <default>false</default>
+        <label>Kids Toys</label>
+    </customValue>
+    <customValue>
+        <fullName>Car Parts</fullName>
+        <default>false</default>
+        <label>Car Parts</label>
+    </customValue>
+    <customValue>
+        <fullName>Cell Phones</fullName>
+        <default>false</default>
+        <label>Cell Phones</label>
+    </customValue>
+    <description>Type of item</description>
+    <masterLabel>ItemType</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
