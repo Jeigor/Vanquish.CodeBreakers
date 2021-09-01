@@ -1,0 +1,7 @@
+<apex:page>
+  <apex:iframe
+    id="iframe_a"
+    height="1200px"
+    src="https://brave-shark-5267fr-dev-ed--c.visualforce.com/apex/ProductList"
+  />
+</apex:page>

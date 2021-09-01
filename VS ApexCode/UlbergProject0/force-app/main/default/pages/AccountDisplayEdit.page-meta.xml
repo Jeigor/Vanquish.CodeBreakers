@@ -3,7 +3,9 @@
     <apiVersion>52.0</apiVersion>
     <availableInTouch>true</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <label>ProductList</label>
+    <description
+  >Display user account and allow them to edit the fields and save back to salesforce.</description>
+    <label>AccountDisplayEdit</label>
     <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>7</minorNumber>

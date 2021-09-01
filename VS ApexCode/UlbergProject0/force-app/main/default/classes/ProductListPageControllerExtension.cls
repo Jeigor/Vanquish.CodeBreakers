@@ -26,11 +26,13 @@ public with sharing class ProductListPageControllerExtension {
       FROM Product2
     ];
   }
+  //brave-shark-5267fr-dev-ed--c.visualforce.com/apex/ProductDetail?
   public String getDetailURL() {
     return 'https://' +
-      ApexPages.currentPage().getHeaders().get('Host') +
+      'brave-shark-5267fr-dev-ed--c.visualforce.com' +
       '/apex/ProductDetail';
   }
+
   //   public Product2 pdct {get; set;}
   //   List<Product2> pdcts {get;set;}
 

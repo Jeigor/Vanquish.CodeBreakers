@@ -8,7 +8,10 @@
   Ver   Date         Author         Modification
   1.0   08-27-2021   Daniel Boice   Initial Version
 -->
-<apex:page standardController="Product2">
+<apex:page
+  standardController="Product2"
+  extensions="ProductDetailPageExtensionController"
+>
   <apex:stylesheet
     value="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
   />
@@ -18,6 +21,7 @@
     body {
       background: linear-gradient(to right, #c04848, #480048);
       min-height: 100vh;
+      width: 1300px;
     }
     ul,
     form {
@@ -35,18 +39,46 @@
       background-color: red;
     }
     .centerBlock {
-      display: table;
-      margin-left: 55px;
-      margin-top: 10px;
-      margin-bottom: 0px;
+      text-align: center;
+      width: 280px;
+      margin-left: -25px;
+      padding-top: 10px;
     }
-    .rightBlock {
-      display: table;
-      margin-left: 45px;
-      padding-right: 15;
-      margin-bottom: 0px;
+    /* unvisited link */
+    a:link {
+      color: #ccc;
+    }
+    /* visited link */
+    a:visited {
+      color: #095484;
+    }
+    /* mouse over link */
+    a:hover {
+      color: #8ebf42;
+    }
+    /* selected link */
+    a:active {
+      color: #800000;
     }
   </style>
+
+  -
+  <div>
+    <a href="{!checkoutLink}" target="_top" style="font-size: 30px"
+      >Go to Checkout</a
+    >
+    <br />
+    <p class="font-italic text-muted mb-0 medium">
+      <apex:outputText styleClass="list-group-item" value="{!customerName}" />
+    </p>
+
+    <p class="font-italic text-muted mb-0 medium">
+      <apex:outputText
+        styleClass="list-group-item"
+        value="{!countShoppingCart}"
+      />
+    </p>
+  </div>
   <div class="container">
     <div class="row text-center text-white mb-5" style="margin-top: 20px">
       <div class="col-lg-7 mx-auto">
@@ -61,28 +93,27 @@
       style="margin-left: 120px"
     >
       <div class="row justify-content-center">
-        <div class="col-4">
+        <div class="col-4" style="min-width: 500px">
           <!--<a class="btn btn-outline-primary" href="javascript:history.back()" role="button">Go Back to List</a>-->
-          <apex:outputLink
-            styleClass="btn btn-outline-primary"
+          <!-- <apex:outputLink styleClass="btn btn-outline-primary"
             value="javascript:history.back()"
           >
             Back
-          </apex:outputLink>
+          </apex:outputLink>-->
           <!-- <a href="javascript:history.back()">Go Back to List</a> -->
-          <h5 class="mt-0 font-weight-bold mb-2">
+          <h5 class="mt-0 font-weight-bold mb-2" style="min-width: 500px">
             <apex:outputText
               styleClass="list-group-item"
               value="{!Product2.Name}"
             />
           </h5>
+
           <p class="font-italic text-muted mb-0 medium">
             <apex:outputText
               styleClass="list-group-item"
               value="{!Product2.Description}"
             />
           </p>
-
           <!-- <a href="" class="btn btn-primary">
     <span class="glyphicon glyphicon-th-list">Add To Cart</span> 
 </a>
@@ -96,29 +127,40 @@
             Price: {! Product2.Asking_Price__c } <br/>-->
         <div class="col-4 text-start">
           <br />
+
           <img
             src="{!Product2.DisplayUrl}"
             alt="Generic placeholder image"
-            style="margin-top: 5px; margin-left: -25px"
+            style="margin-top: -24px; margin-left: -25px"
           />
           <br />
 
           <div class="centerBlock">
             <h4 class="mt-0 text-white font-weight-bold">
-              <apex:outputField
-                style="margin-top: 15px; margin-left: -85px"
-                value="{!Product2.Asking_Price__c}"
-              />
+              <apex:outputField value="{!Product2.Asking_Price__c}" />
             </h4>
             <br />
-            <apex:outputLink
-              styleClass="btn btn-outline-primary"
+            <!--
+                                  <apex:outputLink styleClass="btn btn-outline-primary"
               style="margin-top: 5px; margin-left: 15px"
               value="javascript:history.back()"
             >
               Add to Cart
             </apex:outputLink>
+                                  -->
             <br />
+
+            <apex:form>
+              <Apex:pagemessages id="message"></Apex:pagemessages>
+
+              <apex:outputPanel>
+                <Apex:commandButton
+                  action="{!addToCart}"
+                  value="Add To Cart"
+                  style="margin-top: 5px; margin-left: 15px"
+                />
+              </apex:outputPanel>
+            </apex:form>
           </div>
         </div>
       </div>

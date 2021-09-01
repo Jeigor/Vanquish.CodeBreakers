@@ -1,0 +1,169 @@
+<apex:page
+  controller="checkoutController"
+  tabStyle="Checkout__c"
+  extensions="InitializerExtension"
+  action="{!setUSAddress}"
+>
+  <style type="text/css">
+    body {
+      background: linear-gradient(to right, #c04848, #480048);
+      min-height: 100vh;
+    }
+    ul,
+    form {
+      background: linear-gradient(to right, #c04848, #480048);
+    }
+    .text-gray {
+      color: #aaa;
+    }
+
+    img {
+      height: 170px;
+      width: 140px;
+    }
+    .activeRow {
+      background-color: red;
+    }
+  </style>
+  <apex:messages />
+  <apex:pageBlock title="{!greeting}">
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.Full_Name__c.label}: "
+      for="checkOName"
+    />
+    <apex:outputField value="{!Checkout.Full_Name__c}" id="checkOName" />
+    <br />
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.Items_In_Cart__c.label}: "
+      for="cartCount"
+    />
+    <apex:outputField value="{!Checkout.Items_In_Cart__c}" id="cartCount" />
+    <br />
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.Address__c.label}: "
+      for="Adress"
+    />
+    <apex:outputField value="{!Checkout.Address__c}" id="Adress" />
+    <br />
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.City__c.label}: "
+      for="City"
+    />
+    <apex:outputField value="{!Checkout.City__c}" id="City" />
+    <br />
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.State__c.label}: "
+      for="State"
+    />
+    <apex:outputField value="{!Checkout.State__c}" id="State" />
+    <br />
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.Zip_Code__c.label}: "
+      for="ZipCode"
+    />
+    <apex:outputField value="{!Checkout.Zip_Code__c}" id="ZipCode" />
+    <br />
+  </apex:pageBlock>
+  <apex:pageBlock title="{!cardinfo}">
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.Name_On_Card__c.label}: "
+      for="CardName"
+    />
+    <apex:outputField value="{!Checkout.Name_On_Card__c}" id="CardName" />
+    <br />
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.Card_Number__c.label}: "
+      for="checkOCardnum"
+    />
+    <apex:outputField value="{!Checkout.Card_Number__c}" id="checkOCardnum" />
+    <br />
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.Expiration_Date__c.label}: "
+      for="Expiration"
+    />
+    <apex:outputField value="{!Checkout.Expiration_Date__c}" id="Expiration" />
+    <br />
+    <apex:outputLabel
+      value="{!$ObjectType.Checkout__c.fields.Security_Code__c.label}: "
+      for="SecurityCode"
+    />
+    <apex:outputField value="{!Checkout.Security_Code__c}" id="SecurityCode" />
+    <br />
+  </apex:pageBlock>
+
+  <apex:form>
+    <apex:pageBlock>
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton action="{!UpdateInfo}" value="Update Information" />
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+
+  <apex:pageBlock title="Shopping Cart">
+    <apex:repeat value="{!ShoppingCart}" var="a">
+      <p>{!a.Product__r.name}, {!a.Product__r.Asking_Price__c}</p>
+    </apex:repeat>
+  </apex:pageBlock>
+  <!--<apex:pageBlock title="Variable values">
+        <c:editMode value="{!$CurrentPage.parameters.key}"/>
+    </apex:pageBlock>-->
+  <apex:form rendered="{!$CurrentPage.parameters.key = 'true'}">
+    <apex:pageBlock title="Update Shipping Information" id="thePageBlock">
+      <apex:pageBlockSection columns="2">
+        <apex:inputField id="aName" value="{!Checkout.Full_Name__c}" />
+        <apex:inputField value="{!Checkout.Address__c}" />
+        <apex:inputField value="{!Checkout.City__c}" />
+        <apex:pageBlockSectionItem>
+          <apex:outputLabel
+            value="{!$ObjectType.Checkout__c.fields.Is_US_Address__c.label}"
+            for="checkOUSAdd"
+          />
+          <apex:actionRegion>
+            <apex:inputField
+              value="{!Checkout.Is_US_Address__c}"
+              id="checkOUSAdd"
+            >
+              <apex:actionSupport
+                event="onchange"
+                rerender="thePageBlock"
+                status="status"
+              />
+            </apex:inputField>
+          </apex:actionRegion>
+        </apex:pageBlockSectionItem>
+        <apex:inputField value="{!Checkout.State__c}" />
+        <apex:inputField value="{!Checkout.Zip_Code__c}" />
+        <apex:inputField value="{!Checkout.Name_On_Card__c}" />
+        <apex:inputField value="{!Checkout.Card_Number__c}" />
+        <apex:inputField value="{!Checkout.Expiration_Date__c}" />
+        <apex:inputField value="{!Checkout.Security_Code__c}" />
+      </apex:pageBlockSection>
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton action="{!save}" value="Save" />
+        <apex:commandButton
+          action="{!cancel}"
+          value="Cancel"
+          immediate="true"
+        />
+        <apex:commandButton action="{!newCart}" value="New Item" />
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+
+  <apex:form rendered="{!needNewItem}">
+    <apex:pageBlock title="Update Cart">
+      <apex:pageBlockSection columns="1">
+        <apex:outputLabel
+          value="{!$ObjectType.Shopping_Cart__c.fields.Checkout__c.label}: "
+          for="newCartItem"
+        />
+        <apex:outputField value="{!NewItem.Checkout__c}" id="newCartItem" />
+        <br />
+        <apex:inputField id="CheckoutProduct" value="{!newItem.Product__c}" />
+      </apex:pageBlockSection>
+      <apex:pageBlockButtons location="bottom">
+        <apex:commandButton action="{!addToCart}" value="Add Item" />
+      </apex:pageBlockButtons>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>
