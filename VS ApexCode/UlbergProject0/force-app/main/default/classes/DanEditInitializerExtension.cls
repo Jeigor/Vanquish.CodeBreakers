@@ -1,3 +1,4 @@
+//copy of Rayshawn Initializer Extension for the checkout page.  Just in case needed to make last minute changes as Rayshawn was testing his code.
 public with sharing class DanEditInitializerExtension {
   private final Checkout__c checkO;
   Integer total;

@@ -1,3 +1,4 @@
+<!-- copy of Rayshawns Checkout page with small change to controller to get checkout based on User Id and OwnerId in Checkout rather than creating a new checkout object, just in case needed to edit while Rayshawn was testing.-->
 <apex:page
   controller="DanEditCheckoutController"
   tabStyle="Checkout__c"

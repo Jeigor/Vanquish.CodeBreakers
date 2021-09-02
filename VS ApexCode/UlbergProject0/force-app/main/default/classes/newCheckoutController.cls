@@ -1,6 +1,7 @@
 public class newCheckoutController {
-  Checkout__c newChout;
+  private Checkout__c newChout;
 
+  //creates a new checkout table and assign it
   public Checkout__c getNewCheckout() {
     if (newChout == null) {
       newChout = new Checkout__c();
@@ -9,9 +10,9 @@ public class newCheckoutController {
   }
 
   public PageReference save() {
-    // Add the account to the database.
+    // Add the newChout to the database.
     insert newChout;
-    // Send the user to the detail page for the new account.
+    // Send the user to the detail page for the newChout.
     PageReference newChoutPage = new PageReference(
       '/apex/CheckoutPage?id=' +
       newChout.id +

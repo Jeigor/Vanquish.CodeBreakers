@@ -1,3 +1,4 @@
+//last minute copy of Rayshawn's code for checkout page, no changes.  Just changed the name.  see Checkout Page Controller.  Created just in case I needed to make changes and did not want to alter Rayshwan's code as he was testing
 public with sharing class DanEditCheckoutPageController {
   private final Checkout__c Chout;
   List<Shopping_Cart__c> shoppingCart = new List<Shopping_Cart__c>();

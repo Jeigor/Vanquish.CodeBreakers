@@ -1,29 +1,30 @@
+//An existing table is required to run the CheckoutPage
 @isTest(SeeAllData=true)
 public class CheckoutControllerTests {
+  //Set page for test
   @isTest
   public static void testCheckoutController() {
     PageReference pageRef = new PageReference(
-      '/apex/CheckoutPage?id=a005e0000067MapAAE&key=false'
+      '/apex/CheckoutPage?id=a005e0000067NsdAAE&key=false'
     );
     Test.setCurrentPage(pageRef);
-
+    //verify the correct page is displayed
     System.debug(pageRef);
-
+    //Instatiate CheckoutController and assign url
     CheckoutController controller = new CheckoutController();
     String nextPage = controller.save().getUrl();
 
-    // Verify that page fails without parameters
-    //System.assertEquals('/apex/Checkout?error=noParam', nextPage);
+    //Verify current page
     System.debug(nextPage);
 
     nextPage = controller.save().getUrl();
 
-    // Add parameters to page URL
-    ApexPages.currentPage().getParameters().put('id', 'a035f0000005fUGAAY');
+    //Add parameters to page URL
+    ApexPages.currentPage().getParameters().put('id', 'a005e0000067NsdAAE');
     System.debug(pageRef);
     System.debug(nextPage);
 
-    // Instantiate a new controller with all parameters in the page
+    //Instantiate a new controller with all parameters in the page
     controller = new CheckoutController();
 
     Checkout__c newRecord = controller.getCheckout();

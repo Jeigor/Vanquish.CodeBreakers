@@ -1,4 +1,6 @@
+//extension for the product detail page (test coveragee 85%)
 public class ProductDetailPageExtensionController {
+  //could change this to a global label, mostly used for link to the test checkout from the product detail page but could be added elsewhere when fully developed
   final String checkoutPageName = 'https://codebreakers-developer-edition.na162.force.com/s/test-checkout';
 
   public String choutID { get; set; }
@@ -12,13 +14,16 @@ public class ProductDetailPageExtensionController {
       Userinfo.getFirstName() +
       ' ' +
       Userinfo.getLastName();
-    Checkout__c chout = (Checkout__c) [
+    List<Checkout__c> choutList = [
       SELECT id, Full_Name__c, Items_In_Cart__c, OwnerId
       FROM Checkout__c
       WHERE OwnerId = :Userinfo.getuserId()
       LIMIT 1
     ];
-    if (chout != null) {
+    Checkout__c chout;
+    if (choutList.size() > 0) {
+      //this could be better to test for not returned. if the query returns results and chout is initialized just update the shopping cart count else create the checkout
+      chout = (Checkout__c) choutList[0];
       this.countShoppingCart =
         'Items in Checkout: ' + String.valueOf(chout.Items_In_Cart__c);
     } else {
@@ -27,6 +32,7 @@ public class ProductDetailPageExtensionController {
         Userinfo.getFirstName() +
         ' ' +
         Userinfo.getLastName();
+      //try catch statements around DML statements would be better
       insert chout;
       chout = (Checkout__c) [
         SELECT id, Full_Name__c, Items_In_Cart__c, OwnerId
@@ -39,6 +45,7 @@ public class ProductDetailPageExtensionController {
     }
   }
   /*
+    // some code that could be helpful in pulling the experience cloud url from the iframe
     public PageReference getCommunityURL() {
         String ntwrkId = Network.getNetworkId();
         ConnectApi.Community comm = ConnectApi.Communities.getCommunity(ntwrkId);
@@ -51,19 +58,24 @@ public class ProductDetailPageExtensionController {
         return new Pagereference(comm.siteUrl + '/s/' + communityPage);
     }
     */
+
+  //to display message after item added to cart
   public void displayInfo(String message) {
     ApexPages.addmessage(
       new ApexPages.message(ApexPages.severity.INFO, confirmationMessage)
     );
   }
+  // for the command button to add product to cart. Creates new checkout if one does not exist then adds the and adds the product and checkout shopping cart junction object
   public void addToCart() {
-    Checkout__c chout = (Checkout__c) [
+    List<Checkout__c> choutList = [
       SELECT id, Full_Name__c, Items_In_Cart__c, OwnerId
       FROM Checkout__c
       WHERE OwnerId = :Userinfo.getuserId()
-      LIMIT 1
     ];
-    if (chout == null) {
+
+    Checkout__c chout;
+    //this could be better covverage if tested for not returned
+    if (choutList.size() == 0) {
       chout = new Checkout__c();
       chout.Full_Name__c =
         Userinfo.getFirstName() +
@@ -76,6 +88,8 @@ public class ProductDetailPageExtensionController {
         WHERE OwnerId = :Userinfo.getuserId()
         LIMIT 1
       ];
+    } else {
+      chout = (Checkout__c) choutList[0];
     }
     Shopping_Cart__c sc = new Shopping_Cart__c();
     String productId = apexPages.currentPage().getParameters().get('id');
@@ -84,11 +98,10 @@ public class ProductDetailPageExtensionController {
     this.choutID = chout.Id;
     insert sc;
 
-    chout = (Checkout__c) [
+    List<Checkout__c> choutList2 = [
       SELECT id, Full_Name__c, Items_In_Cart__c, OwnerId
       FROM Checkout__c
-      WHERE OwnerId = :Userinfo.getuserId()
-      LIMIT 1
+      WHERE OwnerId = :Userinfo.getuserId() AND Id = :chout.Id
     ];
 
     this.countShoppingCart =
@@ -97,6 +110,7 @@ public class ProductDetailPageExtensionController {
     displayInfo(this.confirmationMessage);
   }
 
+  //gets the link to the checkout page in the experience site.  could be changed to a global label.
   public String getCheckoutLink() {
     /*
           * it is in an iframe in a modal window so I'm just going to hard code this for now
@@ -106,6 +120,7 @@ public class ProductDetailPageExtensionController {
         */
     PageReference pr = new PageReference(checkoutPageName);
 
+    // for testing to add param to link if needed in experience cloud if needed, but not used, checkout page has separate query based on userinfo.Id and OwnerId for checkout
     this.choutId = 'a005e0000067MapAAE';
     pr.getParameters().put('choutID', choutId);
     System.debug(pr.getURL());

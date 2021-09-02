@@ -1,3 +1,4 @@
+//some last minute changes to Rayshawns code just to display the checkout items and not create a new checkout object on the page
 public with sharing class DanEditCheckoutController {
   private final Checkout__c Chout;
   List<Shopping_Cart__c> shoppingCart = new List<Shopping_Cart__c>();
@@ -5,6 +6,7 @@ public with sharing class DanEditCheckoutController {
   Shopping_Cart__c newItem;
 
   public DanEditCheckoutController() {
+    //only thing changed from Rayshawns code was to get the checkout based on UserInfo.Id and linked to OwnerId in the checkout, currently creates an error in the page if sample data for checkout object not entered first. need to add code for creating checkout if does not exist and check
     Chout = [
       SELECT
         id,

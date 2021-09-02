@@ -1,8 +1,8 @@
 public with sharing class checkoutController {
-  private final Checkout__c Chout;
-  List<Shopping_Cart__c> shoppingCart = new List<Shopping_Cart__c>();
-  Boolean needNewItem = false;
-  Shopping_Cart__c newItem;
+  private Checkout__c Chout;
+  private List<Shopping_Cart__c> shoppingCart = new List<Shopping_Cart__c>();
+  private Boolean needNewItem = false;
+  private Shopping_Cart__c newItem;
 
   public checkoutController() {
     Chout = [
@@ -34,6 +34,7 @@ public with sharing class checkoutController {
       WHERE Checkout__r.id = :Chout.id
     ];
   }
+  //variable accessors
   public Checkout__c getCheckout() {
     return Chout;
   }
@@ -47,20 +48,34 @@ public with sharing class checkoutController {
     return needNewItem;
   }
 
+  //save data and refresh page with new settings
   public PageReference save() {
-    update Chout;
-    needNewItem = false;
-    PageReference newChoutPage = new PageReference(
-      '/apex/CheckoutPage?id=' +
-      Chout.id +
-      '&key=false'
-    );
+    PageReference newChoutPage = Page.CheckoutPage;
+    if (newChoutPage == null) {
+      newChoutPage = Page.CheckoutPage;
+      newChoutPage.getParameters().put('error', 'noParam');
+    } else {
+      try {
+        update Chout;
+        needNewItem = false;
+        newChoutPage = new PageReference(
+          '/apex/CheckoutPage?id=' +
+          Chout.id +
+          '&key=false'
+        );
+      } catch (Exception e) {
+        newChoutPage = Page.CheckoutPage;
+        newChoutPage.getParameters().put('error', 'noInsert');
+      }
+    }
     newChoutPage.setRedirect(true);
     return newChoutPage;
   }
+  //clears input fields
   public PageReference cancel() {
     return null;
   }
+  //saves new item to database and updates tables
   public PageReference addToCart() {
     insert newItem;
     update Chout;
@@ -68,6 +83,8 @@ public with sharing class checkoutController {
     needNewItem = false;
     return null;
   }
+  //instantiate new shopping cart and associate it with parent Chout
+  //update table
   public PageReference newCart() {
     if (newItem == null)
       newItem = new Shopping_Cart__c();
@@ -76,6 +93,7 @@ public with sharing class checkoutController {
     update Chout;
     return null;
   }
+  //refresh page with current values and allow access for record changes
   public PageReference updateInfo() {
     PageReference newChoutPage = new PageReference(
       '/apex/CheckoutPage?id=' +
