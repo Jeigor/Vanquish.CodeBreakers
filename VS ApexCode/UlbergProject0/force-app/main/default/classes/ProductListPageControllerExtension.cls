@@ -1,5 +1,5 @@
 /**
- * @description       :
+ * @description       : This was originally used in the product list page, but then later not needed or used.  Used standard controller for the list page.
  * @author            : Daniel Boice
  * @group             :
  * @last modified on  : 08-27-2021

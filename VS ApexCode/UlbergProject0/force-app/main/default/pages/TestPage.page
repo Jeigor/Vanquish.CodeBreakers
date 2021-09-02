@@ -1,0 +1,199 @@
+<!--
+  @description       : 
+  @author            : Daniel Boice
+  @group             : 
+  @last modified on  : 08-27-2021
+  @last modified by  : Daniel Boice
+  Modifications Log
+  Ver   Date         Author         Modification
+  1.0   08-27-2021   Daniel Boice   Initial Version
+-->
+<apex:page standardController="Product2"
+  extensions="ProductListPageControllerExtension"
+>
+  <apex:stylesheet value="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"/> -->
+
+  <style type="text/css">
+    body {
+      background: linear-gradient(to right, #c04848, #480048);
+      min-height: 100vh;
+    }
+    ul,
+    form {
+      background: linear-gradient(to right, #c04848, #480048);
+    }
+    .text-gray {
+      color: #aaa;
+    }
+
+    img {
+      height: 170px;
+      width: 140px;
+    }
+    .activeRow {
+      background-color: red;
+    }
+  </style>
+
+  <div class="container py-5">
+    <div class="row text-center text-white mb-5">
+      <div class="col-lg-7 mx-auto">
+        <h1 class="display-4">Product List</h1>
+      </div>
+    </div>
+    <apex:form >
+      <apex:dataList styleClass="list-group shadow"
+        value="{!Products}"
+        var="pdct"
+      >
+        <!-- Custom content-->
+        <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+          <div class="media-body order-2 order-lg-1">
+            <h5 class="mt-0 font-weight-bold mb-2">
+              <apex:outputText styleClass="list-group-item"
+                value="{!pdct.Name}"
+              />
+            </h5>
+            <p class="font-italic text-muted mb-0 small">
+              <apex:outputText styleClass="list-group-item"
+                value="{!pdct.Description}"
+              />
+            </p>
+            <div class="d-flex align-items-center justify-content-between mt-1">
+              <h6 class="font-weight-bold text-white my-2">
+                <apex:outputField value="{!pdct.Asking_Price__c}" />
+              </h6>
+              <ul class="list-inline small">
+                <li class="list-inline-item m-0">
+                  <i class="fa fa-star text-success"></i>
+                </li>
+                <li class="list-inline-item m-0">
+                  <i class="fa fa-star text-success"></i>
+                </li>
+                <li class="list-inline-item m-0">
+                  <i class="fa fa-star text-success"></i>
+                </li>
+                <li class="list-inline-item m-0">
+                  <i class="fa fa-star text-success"></i>
+                </li>
+                <li class="list-inline-item m-0">
+                  <i class="fa fa-star-o text-gray"></i>
+                </li>
+              </ul>
+              <!-- <apex:commandButton action="{!view}" value="View" />  -->
+              <!-- <apex:outputLink value="/{!pdct.id}" target="_self">Add</apex:outputLink> -->
+              <!-- <apex:outputText value="{!detailURL}"/> -->
+              <apex:outputLink styleClass="btn btn-outline-primary"
+                target="_self"
+                value="{!detailURL}"
+              >
+                View Details
+                <apex:param name="id" value="{!pdct.id}" />
+              </apex:outputLink>
+            </div>
+          </div>
+          <img
+            src="{!pdct.DisplayUrl}"
+            alt="Generic placeholder image"
+            width="200"
+            class="ml-lg-5 order-1 order-lg-2"
+          />
+        </div>
+        <!-- End -->
+      </apex:dataList>
+      <!--
+        	<apex:pageBlockTable  id="pdctTable" value="{!pdcts}" var="pdct" >
+                <apex:column value="{!pdct.Name}" />
+                <apex:column value="{!pdct.ComputerSpecs__c}" />
+                <apex:column value="{!pdct.Model_of_car__c}" />
+                <apex:column value="{!pdct.ProductCode}" />
+                <apex:column value="{!pdct.Year_of_car__c}" />
+            </apex:pageBlockTable>
+           -->
+
+      <!-- <apex:commandButton action="{!first}" value="First"/>
+    	<apex:commandButton action="{!previous}" value="Previous"/>
+        <apex:commandButton action="{!next}" value="Next"/>
+        <apex:commandButton action="{!last}" value="Last"/> -->
+    </apex:form>
+  </div>
+
+  <script>
+    j$ = jQuery.noConflict();
+    j$(document).ready(function () {
+      // first row assigned activeRow class
+      j$('[id$="pdctTable"]').find("tr.first").addClass(".row");
+
+      j$('[id$="pdctTable"] tr').click(function () {
+        // remove activeRow class from previous row
+        j$(".row").removeClass("row");
+        // assign activeRow class to recently clicked row
+        j$(this).addClass("activeRow");
+      });
+    });
+  </script>
+  <div class="container py-5">
+    <div class="row text-center text-white mb-5">
+      <div class="col-lg-7 mx-auto">
+        <h1 class="display-4">Product List</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <!-- List group-->
+        <ul class="list-group shadow">
+          <!-- list group item-->
+          <li class="list-group-item">
+            <!-- Custom content-->
+            <div
+              class="media align-items-lg-center flex-column flex-lg-row p-3"
+            >
+              <div class="media-body order-2 order-lg-1">
+                <h5 class="mt-0 font-weight-bold mb-2">
+                  Apple iPhone XR (Red, 128 GB)
+                </h5>
+                <p class="font-italic text-muted mb-0 small">
+                  128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera |
+                  7MP Front Camera A12 Bionic Chip Processor
+                </p>
+                <div
+                  class="d-flex align-items-center justify-content-between mt-1"
+                >
+                  <h6 class="font-weight-bold my-2">₹64,999</h6>
+                  <ul class="list-inline small">
+                    <li class="list-inline-item m-0">
+                      <i class="fa fa-star text-success"></i>
+                    </li>
+                    <li class="list-inline-item m-0">
+                      <i class="fa fa-star text-success"></i>
+                    </li>
+                    <li class="list-inline-item m-0">
+                      <i class="fa fa-star text-success"></i>
+                    </li>
+                    <li class="list-inline-item m-0">
+                      <i class="fa fa-star text-success"></i>
+                    </li>
+                    <li class="list-inline-item m-0">
+                      <i class="fa fa-star-o text-gray"></i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <img
+                src="https://i.imgur.com/KFojDGa.jpg"
+                alt="Generic placeholder image"
+                width="200"
+                class="ml-lg-5 order-1 order-lg-2"
+              />
+            </div>
+            <!-- End -->
+          </li>
+          <!-- End -->
+        </ul>
+        <!-- End -->
+      </div>
+    </div>
+  </div>
+</apex:page>

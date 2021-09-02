@@ -6,6 +6,7 @@
 		<members>TriggerHandler</members>
         <members>ControlAccounts</members>
         <members>ProductListPageControllerExtension</members>
+		<members>*</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -18,6 +19,7 @@
 	<types>
 		<members>AccountDisplayEdit</members>
         <members>ProductList</members>
+		<members>*</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
@@ -33,6 +35,7 @@
 	<types>
 		<members>Contact</members>
 		<members>Product2</members>
+
         <members>*</members>
 		<name>CustomObject</name>
 	</types>
@@ -40,10 +43,12 @@
     <members>*</members>
 		<name>CustomTab</name>
 	</types>
+	<!--
 	<types>
 		<members>*</members>
 		<name>Flow</name>
 	</types>
+	-->
 	<types>
 		<members>CreatePrevSoldItem</members>
 		<members>CreateRecord</members>

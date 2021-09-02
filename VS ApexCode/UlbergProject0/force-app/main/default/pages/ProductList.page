@@ -90,7 +90,7 @@ var myModal = new bootstrap.Modal(document.getElementById('scrollingModal'), opt
  
  
  
-<!-- Modal -->
+<!-- Modal popup for detal page -->
  
 <div class="modal fade " style="width:1200;" id="scrollingModal" tabindex="-1" aria-labelledby="basicModalLabel" aria-hidden="true">
  
@@ -107,7 +107,8 @@ var myModal = new bootstrap.Modal(document.getElementById('scrollingModal'), opt
       </div>
  
       <div class="modal-body">
- 	<apex:iframe src="https://brave-shark-5267fr-dev-ed--c.visualforce.com/apex/ProductDetail?id=01t5e000002wHTXAA2" id="iframe_a" height="800px"/>
+      <!--This is an iframe that displays in the modal window displaying the product detail page, the src url here is changed by the load new page javascript function when view detail button is pressed and the  product Id is set from the list where the button was pressed, before the modal is displayed. -->
+    <apex:iframe src="https://brave-shark-5267fr-dev-ed--c.visualforce.com/apex/ProductDetail?id=01t5e000002wHTXAA2" id="iframe_a" height="800px"/>
             
  
       </div>
@@ -143,11 +144,9 @@ var myModal = new bootstrap.Modal(document.getElementById('scrollingModal'), opt
   <apex:pageBlock title="Viewing Products" id="products_list">
       <apex:form id="theForm">
          
- 		
+        
        <apex:dataList value="{!pdcts}"
-        var="pdct"
-                      type="1"
-      >
+        var="pdct" type="1">
         <!-- Custom content-->
         <div class="media align-items-lg-center flex-column flex-lg-row p-3">
           <div class="media-body order-2 order-lg-1">
@@ -165,6 +164,7 @@ var myModal = new bootstrap.Modal(document.getElementById('scrollingModal'), opt
               <h6 class="font-weight-bold text-white my-2">
                 <apex:outputField value="{!pdct.Asking_Price__c}" />
               </h6>
+              <!-- this is for the rating, but was not used -->
               <ul class="list-inline small">
                 <li class="list-inline-item m-0">
                   <i class="fa fa-star text-success"></i>
@@ -185,6 +185,7 @@ var myModal = new bootstrap.Modal(document.getElementById('scrollingModal'), opt
               <!-- <apex:commandButton action="{!view}" value="View" />  -->
               <!-- <apex:outputLink value="/{!pdct.id}" target="_self">Add</apex:outputLink> -->
               <!-- <apex:outputText value="{!detailURL}"/> -->
+              <!-- just ended up hard coding the link to the detail page url after the experience site url being different, can change this to a global label variable -->
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" onClick="loadnewpage('https://brave-shark-5267fr-dev-ed--c.visualforce.com/apex/ProductDetail?id='+'{!pdct.id}', '{!pdct.Name}');" data-bs-target="#scrollingModal">View Detail</button>
             
             </div>
@@ -239,21 +240,7 @@ var myModal = new bootstrap.Modal(document.getElementById('scrollingModal'), opt
     </td>
 </tr></table>
            
-      <!--
-            <apex:pageBlockTable  id="pdctTable" value="{!pdcts}" var="pdct" >
-                <apex:column value="{!pdct.Name}" />
-                <apex:column value="{!pdct.ComputerSpecs__c}" />
-                <apex:column value="{!pdct.Model_of_car__c}" />
-                <apex:column value="{!pdct.ProductCode}" />
-                <apex:column value="{!pdct.Year_of_car__c}" />
-            </apex:pageBlockTable>
-           -->
-<!--
-      <apex:commandButton action="{!first}" value="First"/>
-        <apex:commandButton action="{!previous}" value="Previous"/>
-        <apex:commandButton action="{!next}" value="Next"/>
-        <apex:commandButton action="{!last}" value="Last"/>
--->    
+      
 </apex:form>
        </apex:pageBlock>
   </div>

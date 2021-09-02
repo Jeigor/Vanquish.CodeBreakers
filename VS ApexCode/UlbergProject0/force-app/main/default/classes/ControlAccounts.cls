@@ -54,6 +54,10 @@ public class ControlAccounts {
             acc.BillingCity = BillCity;
             acc.BillingStreet = BillStreet;
             acc.BillingPostalCode = BillPc;
+            acc.ShippingState = ShipState;
+            acc.ShippingCity = ShipCity;
+            acc.ShippingStreet = ShipStreet;
+            acc.ShippingPostalCode = ShipPc;
             
             system.debug(acc);
             insert acc;

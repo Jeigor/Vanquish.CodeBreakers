@@ -1,0 +1,35 @@
+<apex:page controller="newCheckoutController" tabStyle="Checkout__c">
+    <style type="text/css">
+    body {
+      background: linear-gradient(to right, #c04848, #480048);
+      min-height: 100vh;
+    }
+    ul,
+    form {
+      background: linear-gradient(to right, #c04848, #480048);
+    }
+    .text-gray {
+      color: #aaa;
+    }
+
+    img {
+      height: 170px;
+      width: 140px;
+    }
+    .activeRow {
+      background-color: red;
+    }
+    </style>
+    <apex:sectionHeader title="New Checkout Edit Page" />
+    <apex:form >
+        <apex:pageBlock title="New Checkout">
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Checkout Information">
+                <apex:inputField id="CheckoutName" value="{!newcheckout.Full_Name__c}"/>
+                <apex:inputField id="CheckoutPhone" value="{!newcheckout.Phone__c}"/>               
+            </apex:pageBlockSection>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>
