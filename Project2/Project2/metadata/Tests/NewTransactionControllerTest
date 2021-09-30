@@ -1,0 +1,17 @@
+@isTest 
+private class NewTransactionControllerTest {
+    static testMethod void validateGetTrans() {
+       //WorkOrder b = new WorkOrder(Game__c='BB-Q', Issue__c='Not Streaming', Status='New');
+       //System.debug('Status before update runs: ' + b.Status);
+
+       // Insert WorkOrder
+       //insert b;
+    
+       // Retrieve the new WorkOrder
+       //b = [SELECT Status FROM WorkOrder WHERE Id =:b.Id];
+       //System.debug('Status after trigger fired: ' + b.Status);
+
+       // Test that the trigger correctly updated the price
+       //System.assertEquals('In Progress', b.Status);
+    }
+}

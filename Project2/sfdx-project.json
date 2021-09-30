@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "Project1",
+  "namespace": "",
+  "sfdcLoginUrl": "https://mindful-shark-iogbb-dev-ed.lightning.force.com/lightning/n/trlhdtips__Welcome",
+  "sourceApiVersion": "52.0"
+}
